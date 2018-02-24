@@ -19,7 +19,7 @@ const App = () => (
 ``` 
 
 With this library, you save number key strokes
-```
+```javascript
 import { Button } from 'react-dress-code'
 
 const App = () => (
@@ -35,7 +35,7 @@ The latest version of the library is available at its `master` branch. All devel
 Add the library to you application
 
 ```
-npm install --save 
+npm install --save git+https://git@github.com/fogfish/react-dress-code.git
 ```
 
 
