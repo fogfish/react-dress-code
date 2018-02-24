@@ -7,7 +7,7 @@ The [Dress Code](https://github.com/zalando/dress-code) is a style library devel
 
 ## Key features
 
-Features of style library is well document by [original documentation](http://zalando.github.io/dress-code/index.html).
+Features of style library is well document by [original documentation](http://zalando.github.io/dress-code/index.html). This library re-uses original notation to simplify application design and re-usability of concepts and patterns.
 
 React extension of Dress Code reduces amount of boilerplate code, while you are designing your applications
 
@@ -27,6 +27,7 @@ const App = () => (
 )
 ```
 
+See [examples](example) and [demo](.) of the library for details.  
 
 ## Getting started 
 
