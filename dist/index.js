@@ -297,7 +297,8 @@ var Input = function Input(props) {
     type: props.type,
     placeholder: props.placeholder,
     disabled: props.disabled,
-    autoFoucs: props.autoFocus });
+    autoFocus: props.autoFocus,
+    required: props.required });
 };
 
 //
