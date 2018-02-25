@@ -156,8 +156,6 @@ var Column = function Column(props) {
 // of the MIT license. See the LICENSE file for details.
 // https://github.com/fogfish/react-dress-code
 //
-//
-//
 var dc_btn = function dc_btn(props) {
   return dc(props, 'dc-btn', function (key, _) {
     switch (key) {
@@ -239,8 +237,6 @@ var Divider = function Divider(_ref) {
 // This file may be modified and distributed under the terms
 // of the MIT license. See the LICENSE file for details.
 // https://github.com/fogfish/react-dress-code
-//
-//
 //
 var dc_label = function dc_label(props) {
   return dc(props, 'dc-label', function (key, _) {
@@ -458,8 +454,8 @@ var TD = function TD(_ref5) {
 var Dialog = function Dialog(_ref) {
   var children = _ref.children;
   return React.createElement(
-    "div",
-    { className: "dc-dialog" },
+    'div',
+    { className: 'dc-dialog' },
     children
   );
 };
@@ -467,8 +463,8 @@ var Dialog = function Dialog(_ref) {
 var DialogContent = function DialogContent(_ref2) {
   var children = _ref2.children;
   return React.createElement(
-    "div",
-    { className: "dc-dialog__content" },
+    'div',
+    { className: 'dc-dialog__content' },
     children
   );
 };
@@ -476,8 +472,8 @@ var DialogContent = function DialogContent(_ref2) {
 var DialogBody = function DialogBody(_ref3) {
   var children = _ref3.children;
   return React.createElement(
-    "div",
-    { className: "dc-dialog__body" },
+    'div',
+    { className: 'dc-dialog__body' },
     children
   );
 };
@@ -485,8 +481,8 @@ var DialogBody = function DialogBody(_ref3) {
 var DialogTitle = function DialogTitle(_ref4) {
   var children = _ref4.children;
   return React.createElement(
-    "div",
-    { className: "dc-dialog__title" },
+    'div',
+    { className: 'dc-dialog__title' },
     children
   );
 };
@@ -494,18 +490,28 @@ var DialogTitle = function DialogTitle(_ref4) {
 var DialogSubTitle = function DialogSubTitle(_ref5) {
   var children = _ref5.children;
   return React.createElement(
-    "div",
-    { className: "dc-dialog__subtitle" },
+    'div',
+    { className: 'dc-dialog__subtitle' },
     children
   );
 };
 
-var DialogActions = function DialogActions(_ref6) {
-  var children = _ref6.children;
+var dc_dialog_action = function dc_dialog_action(props) {
+  return dc(props, 'dc-dialog__actions', function (key, _) {
+    switch (key) {
+      case 'with-link':
+        return 'dc-dialog__actions--with-link';
+      default:
+        return '';
+    }
+  });
+};
+
+var DialogActions = function DialogActions(props) {
   return React.createElement(
-    "div",
-    { className: "dc-dialog__actions" },
-    children
+    'div',
+    { className: dc_dialog_action(props) },
+    props.children
   );
 };
 

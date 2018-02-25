@@ -6,6 +6,8 @@
 // https://github.com/fogfish/react-dress-code
 //
 import React from 'react'
+import { dc } from '../core/dress-code' 
+
 
 export const Dialog = ({children}) => (
   <div className="dc-dialog">
@@ -37,8 +39,21 @@ export const DialogSubTitle = ({children}) => (
   </div>
 )
 
-export const DialogActions = ({children}) => (
-  <div className="dc-dialog__actions">
-    {children}
+const dc_dialog_action = (props) => (
+  dc(props, 'dc-dialog__actions', 
+    (key, _) => {
+      switch (key) {
+        case 'with-link':
+          return 'dc-dialog__actions--with-link'
+        default:
+          return ''
+      }
+    }
+  )
+)
+
+export const DialogActions = (props) => (
+  <div className={dc_dialog_action(props)}>
+    {props.children}
   </div>
 )
