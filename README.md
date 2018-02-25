@@ -1,6 +1,6 @@
 # React Dress Code
 
-The library implements a [react.js](https://reactjs.org) interface to [Dress Code](https://github.com/zalando/dress-code). [Dress Code](https://github.com/zalando/dress-code) is a style library developed by Zalando Brand Solutions department to solve the challenge of consistency between multiple application.
+The library implements a [react.js](https://reactjs.org) interface to [Dress Code](https://github.com/zalando/dress-code). Dress Code is a style library developed by Zalando Brand Solutions department to solve the challenge of consistency between multiple application.
 
 [![NPM](https://img.shields.io/npm/v/react-dress-code.svg)](https://www.npmjs.com/package/react-dress-code)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
