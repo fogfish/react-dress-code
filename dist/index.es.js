@@ -156,6 +156,8 @@ var Column = function Column(props) {
 // of the MIT license. See the LICENSE file for details.
 // https://github.com/fogfish/react-dress-code
 //
+//
+//
 var dc_btn = function dc_btn(props) {
   return dc(props, 'dc-btn', function (key, _) {
     switch (key) {
@@ -231,12 +233,28 @@ var Divider = function Divider(_ref) {
    return React.createElement('hr', { className: 'dc-divider' + (secondary ? ' dc-divider--secondary' : '') });
 };
 
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];
+
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
+
+  return target;
+};
+
 //
 // Copyright (C) 2018 Dmitry Kolesnikov
 //
 // This file may be modified and distributed under the terms
 // of the MIT license. See the LICENSE file for details.
 // https://github.com/fogfish/react-dress-code
+//
+//
 //
 var dc_label = function dc_label(props) {
   return dc(props, 'dc-label', function (key, _) {
@@ -280,15 +298,7 @@ var dc_input = function dc_input(props) {
 };
 
 var Input = function Input(props) {
-  return React.createElement('input', {
-    className: dc_input(props),
-    id: props.id,
-    name: props.id,
-    type: props.type,
-    placeholder: props.placeholder,
-    disabled: props.disabled,
-    autoFocus: props.autoFocus,
-    required: props.required });
+  return React.createElement('input', _extends({ className: dc_input(props), name: props.id }, props));
 };
 
 //

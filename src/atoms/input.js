@@ -50,16 +50,7 @@ const dc_input = (props) => (
 )
 
 export const Input = (props) => (
-  <input 
-    className={dc_input(props)}
-    id={props.id}
-    name={props.id}
-    type={props.type}  
-    placeholder={props.placeholder} 
-    disabled={props.disabled}
-    autoFocus={props.autoFocus}
-    required={props.required}
-    onChange={props.onChange} />
+  <input className={dc_input(props)} name={props.id} { ...props } />
 )
 
 
