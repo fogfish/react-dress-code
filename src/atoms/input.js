@@ -58,7 +58,8 @@ export const Input = (props) => (
     placeholder={props.placeholder} 
     disabled={props.disabled}
     autoFocus={props.autoFocus}
-    required={props.required} />
+    required={props.required}
+    onChange={props.onChange} />
 )
 
 
