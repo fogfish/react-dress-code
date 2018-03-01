@@ -23,6 +23,6 @@ export const H4 = ({children}) => (
    <h4 className="dc-h4">{children}</h4>
 )
 
-export const Text = ({small,children}) => (
+export const Text = ({small, children}) => (
    <p className={small ? 'dc--text-small' : 'dc-p'}>{children}</p> 
 )

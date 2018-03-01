@@ -40,7 +40,7 @@ const dc_input = (props) => (
           return 'dc-input--disabled'
         case 'small': 
           return 'dc-input--small'
-        case 'is-error':
+        case 'iserror':
           return 'dc-input--is-error'
         default: 
           return ''
@@ -49,8 +49,10 @@ const dc_input = (props) => (
   )
 )
 
-export const Input = (props) => (
-  <input className={dc_input(props)} name={props.id} { ...props } />
+const dc_input_props = ({ disabled, small, iserror, ...props }) => (props)
+
+export const Input = ({ className, children, ...props }) => (
+  <input className={dc_input(props)} name={props.id} { ...dc_input_props(props) } />
 )
 
 
@@ -64,7 +66,7 @@ const dc_select = (props) => (
           return 'dc-select--disabled'
         case 'small': 
           return 'dc-select--small'
-        case 'is-error':
+        case 'iserror':
           return 'dc-select--is-error'
         default: 
           return ''
@@ -73,13 +75,9 @@ const dc_select = (props) => (
   )
 )
 
-export const Select = (props) => (
-  <select
-    className={dc_select(props)}
-    id={props.id}
-    disabled={props.disabled}
-    onChange={props.onChange}>
-    {props.children}
+export const Select = ({ className, children, ...props }) => (
+  <select className={dc_select(props)} name={props.id} { ...dc_input_props(props) }>
+    {children}
   </select>
 
 )

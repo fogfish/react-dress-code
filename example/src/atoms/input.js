@@ -21,7 +21,7 @@ const TextInput = () => (
     <Input id="reqInput" type="text" placeholder="e.g. give an example" />
 
     <Label sub="required">Required input</Label>
-    <Input id="errInput" type="text" placeholder="e.g. give an example" is-error />
+    <Input id="errInput" type="text" placeholder="e.g. give an example" iserror />
 
     <Label disabled>Disabled input</Label>
     <Input id="offInput" type="text" placeholder="e.g. give an example" disabled />
@@ -50,7 +50,7 @@ const SelectInput = () => (
       <option value="">Option 5</option>
     </Select>
 
-    <Select is-error>
+    <Select iserror>
       <option value="">Enabled</option>
       <option value="">Option 2</option>
       <option value="">Option 3</option>

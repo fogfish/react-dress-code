@@ -6,7 +6,27 @@
 // https://github.com/fogfish/react-dress-code
 //
 import React from 'react'
+import { dc } from '../core/dress-code' 
 
-export const Divider = ({secondary}) => (
-   <hr className={`dc-divider${secondary?' dc-divider--secondary':''}`}/>
+
+//
+//
+const dc_divider = (props) => (
+  dc(props, 'dc-divider', 
+    (key, _) => {
+      switch (key) {
+        case 'secondary':
+          return 'dc-divider--secondary'
+        default:
+          return ''
+      }
+    }
+  )
 )
+
+const dc_divider_props = ({ secondary, ...props }) => (props)
+
+export const Divider = ({ className, children, ...props }) => (
+  <hr className={dc_divider(props)} { ...dc_divider_props(props) }/>
+)
+

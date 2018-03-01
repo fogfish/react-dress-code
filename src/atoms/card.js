@@ -7,8 +7,8 @@
 //
 import React from 'react'
 
-export const Card = ({children}) => (
-  <div className="dc-card">
+export const Card = ({ className, children, ...props }) => (
+  <div className="dc-card" { ...props }>
     {children}
   </div>
 )

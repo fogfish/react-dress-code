@@ -28,7 +28,7 @@ const dc_btn = (props) => (
           return 'dc-btn--disabled'
         case 'link':
           return 'dc-btn--link'
-        case 'no-focus': 
+        case 'nofocus': 
           return 'dc-btn--no-focus'
         default:
           return ''
@@ -37,20 +37,16 @@ const dc_btn = (props) => (
   )
 )
 
-export const Button = (props) => (
-  <button 
-    className={dc_btn(props)}
-    type={props.type} 
-    onClick={props.onClick}>
-      {props.children}
-   </button>
+const dc_btn_props = ({ large, small, primary, destroy, active, disabled, link, nofocus, ...props }) => (props)
+
+export const Button = ({ className, children, ...props }) => (
+  <button className={dc_btn(props)} { ...dc_btn_props(props) }>
+    {children}
+  </button>
 )
 
-export const Link = (props) => (
-  <a 
-    className={dc_btn(props)}
-    href={props.href}
-    onClick={props.onClick}>
-      {props.children}
+export const Link = ({ className, children, ...props }) => (
+  <a className={dc_btn(props)} { ...dc_btn_props(props) }>
+    {children}
   </a>
 )

@@ -8,9 +8,23 @@
 import React from 'react'
 import { dc } from '../core/dress-code' 
 
+//
+//
+const dc_table = (props) => (
+  dc(props, 'dc-table',
+    (key, _) => {
+      switch(key) {
+        case 'responsive': 
+          return 'dc-table--responsive'
+        default: 
+          return ''
+      }
+    }    
+  )
+)
 
-export const Table = ({responsive, children}) => (
-  <table className={`dc-table${responsive?' dc-table--responsive':''}`}>
+export const Table = ({ className, children, ...props }) => (
+  <table className={dc_table(props)}>
     {children}
   </table>
 )
@@ -43,14 +57,16 @@ const dc_tr = (props) => (
   )
 )
 
-export const TR = (props) => (
-  <tr className={dc_tr(props)}>{props.children}</tr>
+const dc_tr_props = ({ interactive, tight, comfortable, spacious, ...props }) => (props)
+
+export const TR = ({ className, children, ...props }) => (
+  <tr className={dc_tr(props)} {...dc_tr_props(props)}>{children}</tr>
 )
 
-export const TH = ({children}) => (
+export const TH = ({ className, children, ...props }) => (
   <th className="dc-table__th">{children}</th>
 )
 
-export const TD = ({children}) => (
+export const TD = ({ className, children, ...props }) => (
   <td className="dc-table__td">{children}</td>
 )
