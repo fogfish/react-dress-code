@@ -200,6 +200,8 @@ var objectWithoutProperties = function (obj, keys) {
 // of the MIT license. See the LICENSE file for details.
 // https://github.com/fogfish/react-dress-code
 //
+//
+//
 var dc_btn = function dc_btn(props) {
   return dc(props, 'dc-btn', function (key, _) {
     switch (key) {
@@ -285,6 +287,8 @@ var Card = function Card(_ref) {
 // of the MIT license. See the LICENSE file for details.
 // https://github.com/fogfish/react-dress-code
 //
+//
+//
 var dc_divider = function dc_divider(props) {
   return dc(props, 'dc-divider', function (key, _) {
     switch (key) {
@@ -315,6 +319,8 @@ var Divider = function Divider(_ref2) {
 // This file may be modified and distributed under the terms
 // of the MIT license. See the LICENSE file for details.
 // https://github.com/fogfish/react-dress-code
+//
+//
 //
 var dc_label = function dc_label(props) {
   return dc(props, 'dc-label', function (key, _) {
@@ -372,8 +378,6 @@ var Input = function Input(_ref2) {
   return React.createElement('input', _extends({ className: dc_input(props), name: props.id }, dc_input_props(props)));
 };
 
-//
-//
 var dc_select = function dc_select(props) {
   return dc(props, 'dc-select', function (key, _) {
     switch (key) {
@@ -423,6 +427,8 @@ var LoadingBar = function LoadingBar() {
 // of the MIT license. See the LICENSE file for details.
 // https://github.com/fogfish/react-dress-code
 //
+//
+//
 var dc_tab = function dc_tab(props) {
   return dc(props, 'dc-tab', function (key, _) {
     switch (key) {
@@ -445,8 +451,6 @@ var Tab = function Tab(_ref) {
   );
 };
 
-//
-//
 var dc_tab_element = function dc_tab_element(props) {
   return dc(props, 'dc-tab__element', function (key, _) {
     switch (key) {
@@ -490,6 +494,8 @@ var TabElement = function TabElement(_ref3) {
 // This file may be modified and distributed under the terms
 // of the MIT license. See the LICENSE file for details.
 // https://github.com/fogfish/react-dress-code
+//
+//
 //
 var dc_table = function dc_table(props) {
   return dc(props, 'dc-table', function (key, _) {
