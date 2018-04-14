@@ -6,7 +6,22 @@
 // https://github.com/fogfish/react-dress-code
 //
 import React from 'react'
-import { H1, H2, Card, Divider, Label, Input, Select } from 'react-dress-code'
+import { H1, H2, Card, Divider, Label, Input, Select, Checkbox, Switchbox } from 'react-dress-code'
+
+const CheckboxInput = () => (
+  <div>
+    <Checkbox id="c1">Check this</Checkbox>
+    <Checkbox id="c2" defaultChecked>Check that</Checkbox>
+    <Checkbox id="c3" defaultChecked disabled>Check Disabled</Checkbox>
+    <br />
+    <br />
+    <Switchbox id="c4">Check this</Switchbox>
+    <Switchbox id="c5" defaultChecked>Check that</Switchbox>
+    <Switchbox id="c6" defaultChecked disabled>Check Disabled</Switchbox>
+    <br />
+    <br />
+  </div>
+)
 
 
 const TextInput = () => (
@@ -72,6 +87,10 @@ const SelectInput = () => (
 export const Inputs = () => (
   <Card>
     <H1>Forms</H1>
+
+    <H2>Checkbox</H2>
+    <Divider/>
+    <CheckboxInput />
 
     <H2>Text Input</H2>
     <Divider/>

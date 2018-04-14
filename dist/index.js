@@ -95,7 +95,7 @@ var Container = function Container(_ref2) {
 
 var dc = function dc(props, klass, f) {
    return Object.keys(props).map(function (key) {
-      return f(key, props[key]);
+      return props[key] !== false ? f(key, props[key]) : '';
    }).concat([klass]).join(' ').trim();
 };
 
@@ -322,6 +322,58 @@ var Divider = function Divider(_ref2) {
 //
 //
 //
+var dc_checkbox = function dc_checkbox(props) {
+  return dc(props, 'dc-checkbox', function (key, _) {
+    switch (key) {
+      default:
+        return '';
+    }
+  });
+};
+
+var Checkbox = function Checkbox(_ref) {
+  var type = _ref.type,
+      className = _ref.className,
+      children = _ref.children,
+      props = objectWithoutProperties(_ref, ['type', 'className', 'children']);
+  return React.createElement(
+    'span',
+    null,
+    React.createElement('input', _extends({ type: 'checkbox', className: dc_checkbox(props), name: props.id }, props)),
+    React.createElement(
+      'label',
+      { className: 'dc-label', htmlFor: props.id },
+      children
+    )
+  );
+};
+
+var dc_switchbox = function dc_switchbox(props) {
+  return dc(props, 'dc-checkbox dc-checkbox--alt', function (key, _) {
+    switch (key) {
+      default:
+        return '';
+    }
+  });
+};
+
+var Switchbox = function Switchbox(_ref2) {
+  var type = _ref2.type,
+      className = _ref2.className,
+      children = _ref2.children,
+      props = objectWithoutProperties(_ref2, ['type', 'className', 'children']);
+  return React.createElement(
+    'span',
+    null,
+    React.createElement('input', _extends({ type: 'checkbox', className: dc_switchbox(props), name: props.id }, props)),
+    React.createElement(
+      'label',
+      { className: 'dc-label', htmlFor: props.id },
+      children
+    )
+  );
+};
+
 var dc_label = function dc_label(props) {
   return dc(props, 'dc-label', function (key, _) {
     switch (key) {
@@ -363,18 +415,18 @@ var dc_input = function dc_input(props) {
   });
 };
 
-var dc_input_props = function dc_input_props(_ref) {
-  var disabled = _ref.disabled,
-      small = _ref.small,
-      iserror = _ref.iserror,
-      props = objectWithoutProperties(_ref, ['disabled', 'small', 'iserror']);
+var dc_input_props = function dc_input_props(_ref3) {
+  var disabled = _ref3.disabled,
+      small = _ref3.small,
+      iserror = _ref3.iserror,
+      props = objectWithoutProperties(_ref3, ['disabled', 'small', 'iserror']);
   return props;
 };
 
-var Input = function Input(_ref2) {
-  var className = _ref2.className,
-      children = _ref2.children,
-      props = objectWithoutProperties(_ref2, ['className', 'children']);
+var Input = function Input(_ref4) {
+  var className = _ref4.className,
+      children = _ref4.children,
+      props = objectWithoutProperties(_ref4, ['className', 'children']);
   return React.createElement('input', _extends({ className: dc_input(props), name: props.id }, dc_input_props(props)));
 };
 
@@ -393,10 +445,10 @@ var dc_select = function dc_select(props) {
   });
 };
 
-var Select = function Select(_ref3) {
-  var className = _ref3.className,
-      children = _ref3.children,
-      props = objectWithoutProperties(_ref3, ['className', 'children']);
+var Select = function Select(_ref5) {
+  var className = _ref5.className,
+      children = _ref5.children,
+      props = objectWithoutProperties(_ref5, ['className', 'children']);
   return React.createElement(
     'select',
     _extends({ className: dc_select(props), name: props.id }, dc_input_props(props)),
@@ -674,6 +726,31 @@ var DialogActions = function DialogActions(props) {
 // of the MIT license. See the LICENSE file for details.
 // https://github.com/fogfish/react-dress-code
 //
+var SideRevealer = function SideRevealer(props) {
+  return React.createElement(
+    'div',
+    { className: 'dc-side-revealer' },
+    props.children,
+    React.createElement('input', { className: 'dc-side-revealer__toggle dc-icon', type: 'checkbox' }),
+    React.createElement(
+      'div',
+      { className: 'dc-side-revealer__content dc-card' },
+      React.createElement(
+        'div',
+        { className: 'dc-side-revealer__content__card dc-card' },
+        props.side()
+      )
+    )
+  );
+};
+
+//
+// Copyright (C) 2018 Dmitry Kolesnikov
+//
+// This file may be modified and distributed under the terms
+// of the MIT license. See the LICENSE file for details.
+// https://github.com/fogfish/react-dress-code
+//
 
 exports.H1 = H1;
 exports.H2 = H2;
@@ -688,6 +765,8 @@ exports.Button = Button;
 exports.Link = Link;
 exports.Card = Card;
 exports.Divider = Divider;
+exports.Checkbox = Checkbox;
+exports.Switchbox = Switchbox;
 exports.Label = Label;
 exports.Input = Input;
 exports.Select = Select;
@@ -706,3 +785,4 @@ exports.DialogBody = DialogBody;
 exports.DialogTitle = DialogTitle;
 exports.DialogSubTitle = DialogSubTitle;
 exports.DialogActions = DialogActions;
+exports.SideRevealer = SideRevealer;

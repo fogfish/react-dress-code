@@ -10,6 +10,51 @@ import { dc } from '../core/dress-code'
 
 //
 //
+const dc_checkbox = (props) => (
+  dc(props, 'dc-checkbox',
+    (key, _) => {
+      switch(key) {
+        default: 
+          return ''
+      }
+    }
+  )
+)
+
+export const Checkbox = ({ type, className, children, ...props }) => (
+  <span>
+    <input type="checkbox" className={dc_checkbox(props)} name={props.id} { ...props } />
+    <label className="dc-label" htmlFor={props.id}>
+      {children}
+    </label>
+  </span>
+)
+
+//
+//
+const dc_switchbox = (props) => (
+  dc(props, 'dc-checkbox dc-checkbox--alt',
+    (key, _) => {
+      switch(key) {
+        default: 
+          return ''
+      }
+    }
+  )
+)
+
+export const Switchbox = ({ type, className, children, ...props }) => (
+  <span>
+    <input type="checkbox" className={dc_switchbox(props)} name={props.id} { ...props } />
+    <label className="dc-label" htmlFor={props.id}>
+      {children}
+    </label>
+  </span>
+)
+
+
+//
+//
 const dc_label = (props) => (
   dc(props, 'dc-label',
     (key, _) => {

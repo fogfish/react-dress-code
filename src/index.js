@@ -19,3 +19,4 @@ export * from './atoms/tab'
 export * from './atoms/table'
 
 export * from './molecules/dialog'
+export * from './molecules/revealer'

@@ -7,6 +7,9 @@
 //
 
 export const dc = (props, klass, f) => (
-   Object.keys(props).map((key) => f(key, props[key])).concat([klass]).join(' ').trim()
+   Object.keys(props).map(
+      (key) => 
+         props[key] !== false ? f(key, props[key]) : ''
+   ).concat([klass]).join(' ').trim()
 )
 

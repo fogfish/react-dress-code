@@ -16,6 +16,7 @@ import { Inputs } from './atoms/input'
 import { Loading } from './atoms/loading-bar'
 import { Tabs } from './atoms/tab'
 import { Tables } from './atoms/table'
+import { Revealer } from './molecules/revealer'
 
 
 const App = () => (
@@ -36,6 +37,9 @@ const App = () => (
       <Tabs />
       <Tables />
 
+      <H1>Molecules</H1>
+      <Revealer />
+      
     </Container>
   </Page>
 )
