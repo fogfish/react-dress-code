@@ -14,6 +14,7 @@ import { Buttons } from './atoms/button'
 import { Cards } from './atoms/card'
 import { Inputs } from './atoms/input'
 import { Loading } from './atoms/loading-bar'
+import { ExampleStatus } from './atoms/status'
 import { Tabs } from './atoms/tab'
 import { Tables } from './atoms/table'
 import { Revealer } from './molecules/revealer'
@@ -34,6 +35,7 @@ const App = () => (
       <Cards />
       <Inputs />
       <Loading />
+      <ExampleStatus />
       <Tabs />
       <Tables />
 

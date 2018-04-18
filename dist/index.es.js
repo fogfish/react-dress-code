@@ -475,6 +475,44 @@ var LoadingBar = function LoadingBar() {
 //
 //
 //
+var dc_status = function dc_status(props) {
+  return dc(props, 'dc-status', function (key, _) {
+    switch (key) {
+      case 'active':
+        return 'dc-status--active';
+      case 'inactive':
+        return 'dc-status--inactive';
+      case 'disabled':
+        return 'dc-status--inactive';
+      case 'new':
+        return 'dc-status--new';
+      case 'warning':
+        return 'dc-status--new';
+      case 'error':
+        return 'dc-status--error';
+      default:
+        return '';
+    }
+  });
+};
+
+var Status = function Status(props) {
+  return React.createElement(
+    'span',
+    { className: dc_status(props) },
+    props.children
+  );
+};
+
+//
+// Copyright (C) 2018 Dmitry Kolesnikov
+//
+// This file may be modified and distributed under the terms
+// of the MIT license. See the LICENSE file for details.
+// https://github.com/fogfish/react-dress-code
+//
+//
+//
 var dc_tab = function dc_tab(props) {
   return dc(props, 'dc-tab', function (key, _) {
     switch (key) {
@@ -746,4 +784,4 @@ var SideRevealer = function SideRevealer(props) {
 // https://github.com/fogfish/react-dress-code
 //
 
-export { H1, H2, H3, H4, Text, Page, Container, Row, Column, Button, Link, Card, Divider, Checkbox, Switchbox, Label, Input, Select, LoadingBar, Tab, TabElement, Table, THead, TBody, TR, TH, TD, Dialog, DialogContent, DialogBody, DialogTitle, DialogSubTitle, DialogActions, SideRevealer };
+export { H1, H2, H3, H4, Text, Page, Container, Row, Column, Button, Link, Card, Divider, Checkbox, Switchbox, Label, Input, Select, LoadingBar, Status, Tab, TabElement, Table, THead, TBody, TR, TH, TD, Dialog, DialogContent, DialogBody, DialogTitle, DialogSubTitle, DialogActions, SideRevealer };

@@ -15,6 +15,7 @@ export * from './atoms/card'
 export * from './atoms/divider'
 export * from './atoms/input'
 export * from './atoms/loading-bar'
+export * from './atoms/status'
 export * from './atoms/tab'
 export * from './atoms/table'
 

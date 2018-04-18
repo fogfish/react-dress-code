@@ -6,7 +6,7 @@
 // https://github.com/fogfish/react-dress-code
 //
 import React from 'react'
-import { H1, H2, Card, Divider, Table, THead, TBody, TR, TH, TD } from 'react-dress-code'
+import { H1, H2, Card, Divider, Table, THead, TBody, TR, TH, TD, Status } from 'react-dress-code'
 
 const TableSetup = () => (
   <Table responsive>
@@ -23,31 +23,31 @@ const TableSetup = () => (
         <TD>Eileen</TD>
         <TD>Holland</TD>
         <TD>eileen.holland42@example.com</TD>
-        <TD>Active</TD>
+        <TD><Status active>Active</Status></TD>
       </TR>
       <TR interactive>
         <TD>Duane</TD>
         <TD>Holmes</TD>
         <TD>duane.holmes21@example.com</TD>
-        <TD>Active</TD>
+        <TD><Status active>Active</Status></TD>
       </TR>
       <TR interactive>
         <TD>Kitty</TD>
         <TD>Murray</TD>
         <TD>kitty.murray88@example.com</TD>
-        <TD>New</TD>
+        <TD><Status new>New</Status></TD>
       </TR>
       <TR interactive>
         <TD>Austin</TD>
         <TD>Carpenter</TD>
         <TD>austin.carpenter87@example.com</TD>
-        <TD>New</TD>
+        <TD><Status new>New</Status></TD>
       </TR>
       <TR interactive>
         <TD>Toni</TD>
         <TD>Nichols</TD>
         <TD>toni.nichols83@example.com</TD>
-        <TD>Error</TD>
+        <TD><Status error>Error</Status></TD>
       </TR>
     </TBody>
   </Table>
@@ -69,25 +69,25 @@ const TableSpacing = () => (
         <TD>Eileen</TD>
         <TD>Holland</TD>
         <TD>eileen.holland42@example.com</TD>
-        <TD>Active</TD>
+        <TD><Status active>Active</Status></TD>
       </TR>
       <TR>
         <TD>Kitty</TD>
         <TD>Murray</TD>
         <TD>kitty.murray88@example.com</TD>
-        <TD>New</TD>
+        <TD><Status active>Active</Status></TD>
       </TR>
       <TR comfortable>
         <TD>Duane</TD>
         <TD>Holmes</TD>
         <TD>duane.holmes21@example.com</TD>
-        <TD>Active</TD>
+        <TD><Status active>Active</Status></TD>
       </TR>
       <TR spacious>
         <TD>Austin</TD>
         <TD>Carpenter</TD>
         <TD>austin.carpenter87@example.com</TD>
-        <TD>New</TD>
+        <TD><Status new>New</Status></TD>
       </TR>
     </TBody>
   </Table>
