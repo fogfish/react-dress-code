@@ -1,5 +1,32 @@
 'use strict';
 
+function __$$styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
 Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
@@ -7,12 +34,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var React = _interopDefault(require('react'));
 
 //
-// Copyright (C) 2018 Dmitry Kolesnikov
-//
-// This file may be modified and distributed under the terms
-// of the MIT license. See the LICENSE file for details.
-// https://github.com/fogfish/react-dress-code
-//
+
 var H1 = function H1(_ref) {
    var children = _ref.children;
    return React.createElement(
@@ -60,12 +82,7 @@ var Text = function Text(_ref5) {
 };
 
 //
-// Copyright (C) 2018 Dmitry Kolesnikov
-//
-// This file may be modified and distributed under the terms
-// of the MIT license. See the LICENSE file for details.
-// https://github.com/fogfish/react-dress-code
-//
+
 var Page = function Page(_ref) {
   var children = _ref.children;
   return React.createElement(
@@ -100,12 +117,7 @@ var dc = function dc(props, klass, f) {
 };
 
 //
-// Copyright (C) 2018 Dmitry Kolesnikov
-//
-// This file may be modified and distributed under the terms
-// of the MIT license. See the LICENSE file for details.
-// https://github.com/fogfish/react-dress-code
-//
+
 var Row = function Row(_ref) {
   var children = _ref.children;
   return React.createElement(
@@ -169,18 +181,6 @@ var _extends = Object.assign || function (target) {
   return target;
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
 var objectWithoutProperties = function (obj, keys) {
   var target = {};
 
@@ -194,12 +194,7 @@ var objectWithoutProperties = function (obj, keys) {
 };
 
 //
-// Copyright (C) 2018 Dmitry Kolesnikov
-//
-// This file may be modified and distributed under the terms
-// of the MIT license. See the LICENSE file for details.
-// https://github.com/fogfish/react-dress-code
-//
+
 //
 //
 var dc_btn = function dc_btn(props) {
@@ -250,7 +245,6 @@ var Button = function Button(_ref2) {
     children
   );
 };
-
 var Link = function Link(_ref3) {
   var className = _ref3.className,
       children = _ref3.children,
@@ -263,12 +257,7 @@ var Link = function Link(_ref3) {
 };
 
 //
-// Copyright (C) 2018 Dmitry Kolesnikov
-//
-// This file may be modified and distributed under the terms
-// of the MIT license. See the LICENSE file for details.
-// https://github.com/fogfish/react-dress-code
-//
+
 var Card = function Card(_ref) {
   var className = _ref.className,
       children = _ref.children,
@@ -281,12 +270,7 @@ var Card = function Card(_ref) {
 };
 
 //
-// Copyright (C) 2018 Dmitry Kolesnikov
-//
-// This file may be modified and distributed under the terms
-// of the MIT license. See the LICENSE file for details.
-// https://github.com/fogfish/react-dress-code
-//
+
 //
 //
 var dc_divider = function dc_divider(props) {
@@ -314,12 +298,7 @@ var Divider = function Divider(_ref2) {
 };
 
 //
-// Copyright (C) 2018 Dmitry Kolesnikov
-//
-// This file may be modified and distributed under the terms
-// of the MIT license. See the LICENSE file for details.
-// https://github.com/fogfish/react-dress-code
-//
+
 //
 //
 var dc_checkbox = function dc_checkbox(props) {
@@ -347,7 +326,6 @@ var Checkbox = function Checkbox(_ref) {
     )
   );
 };
-
 var dc_switchbox = function dc_switchbox(props) {
   return dc(props, 'dc-checkbox dc-checkbox--alt', function (key, _) {
     switch (key) {
@@ -373,7 +351,6 @@ var Switchbox = function Switchbox(_ref2) {
     )
   );
 };
-
 var dc_label = function dc_label(props) {
   return dc(props, 'dc-label', function (key, _) {
     switch (key) {
@@ -429,7 +406,6 @@ var Input = function Input(_ref4) {
       props = objectWithoutProperties(_ref4, ['className', 'children']);
   return React.createElement('input', _extends({ className: dc_input(props), name: props.id }, dc_input_props(props)));
 };
-
 var dc_select = function dc_select(props) {
   return dc(props, 'dc-select', function (key, _) {
     switch (key) {
@@ -457,12 +433,7 @@ var Select = function Select(_ref5) {
 };
 
 //
-// Copyright (C) 2018 Dmitry Kolesnikov
-//
-// This file may be modified and distributed under the terms
-// of the MIT license. See the LICENSE file for details.
-// https://github.com/fogfish/react-dress-code
-//
+
 var LoadingBar = function LoadingBar() {
   return React.createElement(
     "div",
@@ -473,12 +444,7 @@ var LoadingBar = function LoadingBar() {
 };
 
 //
-// Copyright (C) 2018 Dmitry Kolesnikov
-//
-// This file may be modified and distributed under the terms
-// of the MIT license. See the LICENSE file for details.
-// https://github.com/fogfish/react-dress-code
-//
+
 //
 //
 var dc_status = function dc_status(props) {
@@ -511,12 +477,7 @@ var Status = function Status(props) {
 };
 
 //
-// Copyright (C) 2018 Dmitry Kolesnikov
-//
-// This file may be modified and distributed under the terms
-// of the MIT license. See the LICENSE file for details.
-// https://github.com/fogfish/react-dress-code
-//
+
 //
 //
 var dc_tab = function dc_tab(props) {
@@ -540,7 +501,6 @@ var Tab = function Tab(_ref) {
     children
   );
 };
-
 var dc_tab_element = function dc_tab_element(props) {
   return dc(props, 'dc-tab__element', function (key, _) {
     switch (key) {
@@ -579,12 +539,7 @@ var TabElement = function TabElement(_ref3) {
 };
 
 //
-// Copyright (C) 2018 Dmitry Kolesnikov
-//
-// This file may be modified and distributed under the terms
-// of the MIT license. See the LICENSE file for details.
-// https://github.com/fogfish/react-dress-code
-//
+
 //
 //
 var dc_table = function dc_table(props) {
@@ -608,7 +563,6 @@ var Table = function Table(_ref) {
     children
   );
 };
-
 var THead = function THead(_ref2) {
   var children = _ref2.children;
   return React.createElement(
@@ -663,7 +617,6 @@ var TR = function TR(_ref5) {
     children
   );
 };
-
 var TH = function TH(_ref6) {
   var className = _ref6.className,
       children = _ref6.children,
@@ -674,7 +627,6 @@ var TH = function TH(_ref6) {
     children
   );
 };
-
 var TD = function TD(_ref7) {
   var className = _ref7.className,
       children = _ref7.children,
@@ -687,12 +639,7 @@ var TD = function TD(_ref7) {
 };
 
 //
-// Copyright (C) 2018 Dmitry Kolesnikov
-//
-// This file may be modified and distributed under the terms
-// of the MIT license. See the LICENSE file for details.
-// https://github.com/fogfish/react-dress-code
-//
+
 var Dialog = function Dialog(_ref) {
   var children = _ref.children;
   return React.createElement(
@@ -758,12 +705,7 @@ var DialogActions = function DialogActions(props) {
 };
 
 //
-// Copyright (C) 2018 Dmitry Kolesnikov
-//
-// This file may be modified and distributed under the terms
-// of the MIT license. See the LICENSE file for details.
-// https://github.com/fogfish/react-dress-code
-//
+
 var SideRevealer = function SideRevealer(props) {
   return React.createElement(
     'div',
@@ -782,12 +724,6 @@ var SideRevealer = function SideRevealer(props) {
   );
 };
 
-//
-// Copyright (C) 2018 Dmitry Kolesnikov
-//
-// This file may be modified and distributed under the terms
-// of the MIT license. See the LICENSE file for details.
-// https://github.com/fogfish/react-dress-code
 //
 
 exports.H1 = H1;
