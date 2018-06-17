@@ -1,0 +1,24 @@
+@import "../node_modules/dress-code/dist/css/dress-code.min.css";
+
+html,
+#root
+{
+   background: white
+}
+
+#root
+{
+   margin-top: 6em; 
+}
+
+.dc-column__contents
+{
+   background: #a3d9ff;
+   border: 1px solid #75c6ff;
+   color: #000;
+}
+
+.dc-row
+{
+   margin-bottom: 20px;
+}

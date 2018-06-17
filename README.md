@@ -39,6 +39,12 @@ Add the library to you application
 npm install --save git+https://git@github.com/fogfish/react-dress-code.git
 ```
 
+Run a storybook as library demo
+
+```
+npm run storybook
+```
+
 
 ## How To Contribute 
 
