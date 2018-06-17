@@ -2154,4 +2154,79 @@ var SideRevealer = function SideRevealer(props) {
 
 //
 
-export { H1, H2, H3, H4, Text, Page, Container, Row, Column, Button, Link, Card, Divider, Checkbox, Switchbox, Label, Input, TextArea, Select, LoadingBar, Status, Tab, TabElement, Table, THead, TBody, TR, TH, TD, EInput, ETextArea, BreadCrumbs, BreadCrumb, Dialog, DialogContent, DialogBody, DialogTitle, DialogSubTitle, DialogActions, SideRevealer };
+var Head = function Head(_ref) {
+  var children = _ref.children;
+  return React.createElement(
+    THead,
+    null,
+    React.createElement(
+      TR,
+      null,
+      React.Children.map(children, function (e) {
+        return React.createElement(
+          TH,
+          null,
+          e.props.title
+        );
+      })
+    )
+  );
+};
+
+var Data = function Data(_ref2) {
+  var children = _ref2.children,
+      json = _ref2.json,
+      onClick = _ref2.onClick;
+  return React.createElement(
+    TR,
+    {
+      interactive: true,
+      onClick: onClick && function () {
+        return onClick(json);
+      }
+    },
+    React.Children.map(children, function (e) {
+      return React.createElement(
+        TD,
+        null,
+        React.createElement(Schema, _extends({}, e.props, { json: json, onClick: onClick }))
+      );
+    })
+  );
+};
+
+var accessor = function accessor(props) {
+  return props.format ? props.format(props.json[props.field]) : props.json[props.field] ? props.json[props.field] : '';
+};
+
+var Schema = function Schema(_ref3) {
+  var Component = _ref3.Component,
+      props = objectWithoutProperties(_ref3, ['Component']);
+  return Component ? React.createElement(
+    Component,
+    props,
+    accessor(props)
+  ) : React.createElement(
+    React.Fragment,
+    null,
+    accessor(props)
+  );
+};
+var Surface = function Surface(props) {
+  return React.createElement(
+    Table,
+    { responsive: true },
+    React.createElement(Head, props),
+    React.createElement(
+      TBody,
+      null,
+      props.data && props.data.map(function (json, id$$1) {
+        return React.createElement(Data, _extends({ key: json.id, json: json }, props));
+      })
+    )
+  );
+};
+
+//
+
+export { H1, H2, H3, H4, Text, Page, Container, Row, Column, Button, Link, Card, Divider, Checkbox, Switchbox, Label, Input, TextArea, Select, LoadingBar, Status, Tab, TabElement, Table, THead, TBody, TR, TH, TD, EInput, ETextArea, BreadCrumbs, BreadCrumb, Dialog, DialogContent, DialogBody, DialogTitle, DialogSubTitle, DialogActions, SideRevealer, Schema, Surface };

@@ -2160,6 +2160,81 @@ var SideRevealer = function SideRevealer(props) {
 
 //
 
+var Head = function Head(_ref) {
+  var children = _ref.children;
+  return React.createElement(
+    THead,
+    null,
+    React.createElement(
+      TR,
+      null,
+      React.Children.map(children, function (e) {
+        return React.createElement(
+          TH,
+          null,
+          e.props.title
+        );
+      })
+    )
+  );
+};
+
+var Data = function Data(_ref2) {
+  var children = _ref2.children,
+      json = _ref2.json,
+      onClick = _ref2.onClick;
+  return React.createElement(
+    TR,
+    {
+      interactive: true,
+      onClick: onClick && function () {
+        return onClick(json);
+      }
+    },
+    React.Children.map(children, function (e) {
+      return React.createElement(
+        TD,
+        null,
+        React.createElement(Schema, _extends({}, e.props, { json: json, onClick: onClick }))
+      );
+    })
+  );
+};
+
+var accessor = function accessor(props) {
+  return props.format ? props.format(props.json[props.field]) : props.json[props.field] ? props.json[props.field] : '';
+};
+
+var Schema = function Schema(_ref3) {
+  var Component = _ref3.Component,
+      props = objectWithoutProperties(_ref3, ['Component']);
+  return Component ? React.createElement(
+    Component,
+    props,
+    accessor(props)
+  ) : React.createElement(
+    React.Fragment,
+    null,
+    accessor(props)
+  );
+};
+var Surface = function Surface(props) {
+  return React.createElement(
+    Table,
+    { responsive: true },
+    React.createElement(Head, props),
+    React.createElement(
+      TBody,
+      null,
+      props.data && props.data.map(function (json, id$$1) {
+        return React.createElement(Data, _extends({ key: json.id, json: json }, props));
+      })
+    )
+  );
+};
+
+//
+
 exports.H1 = H1;
 exports.H2 = H2;
 exports.H3 = H3;
@@ -2200,3 +2275,5 @@ exports.DialogTitle = DialogTitle;
 exports.DialogSubTitle = DialogSubTitle;
 exports.DialogActions = DialogActions;
 exports.SideRevealer = SideRevealer;
+exports.Schema = Schema;
+exports.Surface = Surface;
