@@ -11,6 +11,7 @@ import './structure/Layout.story'
 
 import './atoms/Button.story'
 import './atoms/Card.story'
+import './atoms/Divider.story'
 import './atoms/Input.story'
 import './atoms/LoadingBar.story'
 import './atoms/Status.story'
