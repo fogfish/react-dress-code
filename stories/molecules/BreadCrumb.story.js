@@ -9,15 +9,21 @@ import React from 'react'
 import { withInfo } from '@storybook/addon-info'
 import { storiesOf } from '@storybook/react'
 
-import { LoadingBar } from '../../src/index'
+import { BreadCrumbs, BreadCrumb } from '../../src/index'
 
-storiesOf('Atoms > Progress Indicators', module)
-  .add('Loading bar',
+storiesOf('Molecules > Breadcrumb', module)
+  .add('Breadcrumb',
     withInfo('')(
       () => (
         <div>
-          <LoadingBar />
+          <BreadCrumbs>
+            <BreadCrumb href="#">Previous</BreadCrumb>
+            <BreadCrumb href="#">Previous</BreadCrumb>
+            <BreadCrumb href="#">Previous</BreadCrumb>
+            <BreadCrumb>Current</BreadCrumb>
+          </BreadCrumbs>
         </div>
       )
     )
   )
+

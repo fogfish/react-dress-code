@@ -691,92 +691,6 @@ var TD = function TD(_ref7) {
   );
 };
 
-//
-
-var Dialog = function Dialog(_ref) {
-  var children = _ref.children;
-  return React.createElement(
-    'div',
-    { className: 'dc-dialog' },
-    children
-  );
-};
-
-var DialogContent = function DialogContent(_ref2) {
-  var children = _ref2.children;
-  return React.createElement(
-    'div',
-    { className: 'dc-dialog__content' },
-    children
-  );
-};
-
-var DialogBody = function DialogBody(_ref3) {
-  var children = _ref3.children;
-  return React.createElement(
-    'div',
-    { className: 'dc-dialog__body' },
-    children
-  );
-};
-
-var DialogTitle = function DialogTitle(_ref4) {
-  var children = _ref4.children;
-  return React.createElement(
-    'div',
-    { className: 'dc-dialog__title' },
-    children
-  );
-};
-
-var DialogSubTitle = function DialogSubTitle(_ref5) {
-  var children = _ref5.children;
-  return React.createElement(
-    'div',
-    { className: 'dc-dialog__subtitle' },
-    children
-  );
-};
-
-var dc_dialog_action = function dc_dialog_action(props) {
-  return dc(props, 'dc-dialog__actions', function (key, _) {
-    switch (key) {
-      case 'with-link':
-        return 'dc-dialog__actions--with-link';
-      default:
-        return '';
-    }
-  });
-};
-
-var DialogActions = function DialogActions(props) {
-  return React.createElement(
-    'div',
-    { className: dc_dialog_action(props) },
-    props.children
-  );
-};
-
-//
-
-var SideRevealer = function SideRevealer(props) {
-  return React.createElement(
-    'div',
-    { className: 'dc-side-revealer' },
-    props.children,
-    React.createElement('input', { className: 'dc-side-revealer__toggle dc-icon', type: 'checkbox' }),
-    React.createElement(
-      'div',
-      { className: 'dc-side-revealer__content dc-card' },
-      React.createElement(
-        'div',
-        { className: 'dc-side-revealer__content__card dc-card' },
-        props.side()
-      )
-    )
-  );
-};
-
 function unwrapExports (x) {
 	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
 }
@@ -2111,6 +2025,139 @@ var ETextArea = function ETextArea(props) {
 
 //
 
+//
+//
+var dc_breadcrumbs = function dc_breadcrumbs(props) {
+  return dc(props, 'dc-breadcrumb', function (key, _) {
+    switch (key) {
+      default:
+        return '';
+    }
+  });
+};
+
+var BreadCrumbs = function BreadCrumbs(_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      props = objectWithoutProperties(_ref, ['className', 'children']);
+  return React.createElement(
+    'ul',
+    { className: dc_breadcrumbs(props) },
+    children
+  );
+};
+var dc_breadcrumb = function dc_breadcrumb(props) {
+  return dc(props, 'dc-breadcrumb__item', function (key, _) {
+    switch (key) {
+      default:
+        return '';
+    }
+  });
+};
+
+var BreadCrumb = function BreadCrumb(_ref2) {
+  var href = _ref2.href,
+      children = _ref2.children,
+      props = objectWithoutProperties(_ref2, ['href', 'children']);
+  return React.createElement(
+    'li',
+    { className: dc_breadcrumb(props) },
+    href ? React.createElement(
+      'a',
+      { href: href, 'class': 'dc-link' },
+      children
+    ) : children
+  );
+};
+
+//
+
+var Dialog = function Dialog(_ref) {
+  var children = _ref.children;
+  return React.createElement(
+    'div',
+    { className: 'dc-dialog' },
+    children
+  );
+};
+
+var DialogContent = function DialogContent(_ref2) {
+  var children = _ref2.children;
+  return React.createElement(
+    'div',
+    { className: 'dc-dialog__content' },
+    children
+  );
+};
+
+var DialogBody = function DialogBody(_ref3) {
+  var children = _ref3.children;
+  return React.createElement(
+    'div',
+    { className: 'dc-dialog__body' },
+    children
+  );
+};
+
+var DialogTitle = function DialogTitle(_ref4) {
+  var children = _ref4.children;
+  return React.createElement(
+    'div',
+    { className: 'dc-dialog__title' },
+    children
+  );
+};
+
+var DialogSubTitle = function DialogSubTitle(_ref5) {
+  var children = _ref5.children;
+  return React.createElement(
+    'div',
+    { className: 'dc-dialog__subtitle' },
+    children
+  );
+};
+
+var dc_dialog_action = function dc_dialog_action(props) {
+  return dc(props, 'dc-dialog__actions', function (key, _) {
+    switch (key) {
+      case 'with-link':
+        return 'dc-dialog__actions--with-link';
+      default:
+        return '';
+    }
+  });
+};
+
+var DialogActions = function DialogActions(props) {
+  return React.createElement(
+    'div',
+    { className: dc_dialog_action(props) },
+    props.children
+  );
+};
+
+//
+
+var SideRevealer = function SideRevealer(props) {
+  return React.createElement(
+    'div',
+    { className: 'dc-side-revealer' },
+    props.children,
+    React.createElement('input', { className: 'dc-side-revealer__toggle dc-icon', type: 'checkbox' }),
+    React.createElement(
+      'div',
+      { className: 'dc-side-revealer__content dc-card' },
+      React.createElement(
+        'div',
+        { className: 'dc-side-revealer__content__card dc-card' },
+        props.side()
+      )
+    )
+  );
+};
+
+//
+
 exports.H1 = H1;
 exports.H2 = H2;
 exports.H3 = H3;
@@ -2140,6 +2187,10 @@ exports.TBody = TBody;
 exports.TR = TR;
 exports.TH = TH;
 exports.TD = TD;
+exports.EInput = EInput;
+exports.ETextArea = ETextArea;
+exports.BreadCrumbs = BreadCrumbs;
+exports.BreadCrumb = BreadCrumb;
 exports.Dialog = Dialog;
 exports.DialogContent = DialogContent;
 exports.DialogBody = DialogBody;
@@ -2147,5 +2198,3 @@ exports.DialogTitle = DialogTitle;
 exports.DialogSubTitle = DialogSubTitle;
 exports.DialogActions = DialogActions;
 exports.SideRevealer = SideRevealer;
-exports.EInput = EInput;
-exports.ETextArea = ETextArea;

@@ -19,6 +19,7 @@ export * from './atoms/status'
 export * from './atoms/tab'
 export * from './atoms/table'
 
+export * from './molecules/editor'
+export * from './molecules/breadcrumb'
 export * from './molecules/dialog'
 export * from './molecules/revealer'
-export * from './molecules/editor'
