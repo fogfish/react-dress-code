@@ -65,13 +65,11 @@ Now you're ready to run a local version of rollup that will watch your `src/` co
 npm start
 ```
 
-The library provides an `example` application that is linked to the development version of the library.
+The library provides an `storybook` for development purposes
 
 
 ```bash
-cd example
-npm install
-npm start
+npm run storybook
 ```
 
 
