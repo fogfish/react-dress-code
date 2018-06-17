@@ -6,7 +6,7 @@
 // https://github.com/fogfish/react-dress-code
 //
 import React from 'react'
-import { dc } from '../core/dress-code' 
+import { dc, id } from '../core/dress-code' 
 
 //
 //
@@ -21,13 +21,17 @@ const dc_checkbox = (props) => (
   )
 )
 
-export const Checkbox = ({ type, className, children, ...props }) => (
+const CheckboxWithId = ({ type, className, children, ...props }) => (
   <span>
     <input type="checkbox" className={dc_checkbox(props)} name={props.id} { ...props } />
     <label className="dc-label" htmlFor={props.id}>
       {children}
     </label>
   </span>
+)
+
+export const Checkbox = props => (
+  <CheckboxWithId id={props.id ? props.id : id()} { ...props } />
 )
 
 //
@@ -43,13 +47,17 @@ const dc_switchbox = (props) => (
   )
 )
 
-export const Switchbox = ({ type, className, children, ...props }) => (
+const SwitchboxWithId = ({ type, className, children, ...props }) => (
   <span>
     <input type="checkbox" className={dc_switchbox(props)} name={props.id} { ...props } />
     <label className="dc-label" htmlFor={props.id}>
       {children}
     </label>
   </span>
+)
+
+export const Switchbox = props => (
+  <SwitchboxWithId id={props.id ? props.id : id()} { ...props } />
 )
 
 

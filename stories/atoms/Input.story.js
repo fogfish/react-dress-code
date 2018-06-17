@@ -9,9 +9,9 @@ storiesOf('Atoms > Forms', module)
     withInfo('')(
       () => (
         <div>
-          <Checkbox id="c1">Check this</Checkbox>
-          <Checkbox id="c2" defaultChecked>Check that</Checkbox>
-          <Checkbox id="c3" defaultChecked disabled>Check Disabled</Checkbox>
+          <Checkbox >Check this</Checkbox>
+          <Checkbox defaultChecked>Check that</Checkbox>
+          <Checkbox defaultChecked disabled>Check Disabled</Checkbox>
         </div>
       )
     )
@@ -21,9 +21,9 @@ storiesOf('Atoms > Forms', module)
     withInfo('')(
       () => (
         <div>
-          <Switchbox id="c4">Check this</Switchbox>
-          <Switchbox id="c5" defaultChecked>Check that</Switchbox>
-          <Switchbox id="c6" defaultChecked disabled>Check Disabled</Switchbox>
+          <Switchbox>Check this</Switchbox>
+          <Switchbox defaultChecked>Check that</Switchbox>
+          <Switchbox defaultChecked disabled>Check Disabled</Switchbox>
         </div>
       )
     )
