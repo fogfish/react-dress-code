@@ -36,8 +36,14 @@ The latest version of the library is available at its `master` branch. All devel
 Add the library to you application
 
 ```
+npm install --save react-dress-code
+```
+
+or development version 
+```
 npm install --save git+https://git@github.com/fogfish/react-dress-code.git
 ```
+
 
 Run a storybook as library demo
 
