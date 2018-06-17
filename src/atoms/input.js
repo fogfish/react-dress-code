@@ -108,6 +108,31 @@ export const Input = ({ className, children, ...props }) => (
   <input className={dc_input(props)} name={props.id} { ...dc_input_props(props) } />
 )
 
+//
+//
+const dc_textarea = (props) => (
+  dc(props, 'dc-textarea',
+    (key, _) => {
+      switch(key) {
+        case 'disabled': 
+          return 'dc-textarea--disabled'
+        case 'small': 
+          return 'dc-textarea--small'
+        case 'iserror':
+          return 'dc-textarea--is-error'
+        default: 
+          return ''
+      }
+    }
+  )
+)
+
+const dc_textarea_props = ({ disabled, small, iserror, ...props }) => (props)
+
+export const TextArea = ({ className, ...props }) => (
+  <textarea className={dc_textarea(props)} name={props.id} { ...dc_textarea_props(props) } />
+)
+
 
 //
 //

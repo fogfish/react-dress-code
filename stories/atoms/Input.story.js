@@ -2,7 +2,7 @@ import React from 'react'
 import { withInfo } from '@storybook/addon-info'
 import { storiesOf } from '@storybook/react'
 
-import { Checkbox, Switchbox, Label, Input, Select } from '../../src/index'
+import { Checkbox, Switchbox, Label, Input, TextArea, Select } from '../../src/index'
 
 storiesOf('Atoms > Forms', module)
   .add('Checkbox',
@@ -50,6 +50,20 @@ storiesOf('Atoms > Forms', module)
 
           <Label>Small input</Label>
           <Input id="lowInput" type="text" placeholder="e.g. give an example" small />
+        </div>
+      )
+    )
+  )
+
+  .add('Text Area',
+    withInfo('')(
+      () => (
+        <div>
+          <Label>Text area</Label>
+          <TextArea cols="30" rows="3" />
+
+          <Label sub="required">Text area</Label>
+          <TextArea cols="30" rows="3" iserror/>
         </div>
       )
     )

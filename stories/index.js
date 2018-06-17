@@ -11,3 +11,4 @@ import './atoms/Tab.story'
 import './atoms/Table.story'
 
 import './molecules/Revealer.story'
+import './molecules/Editor.story'

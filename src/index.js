@@ -21,3 +21,4 @@ export * from './atoms/table'
 
 export * from './molecules/dialog'
 export * from './molecules/revealer'
+export * from './molecules/editor'

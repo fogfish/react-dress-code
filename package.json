@@ -22,7 +22,8 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "dress-code": "^2.4.0"
+    "dress-code": "^2.4.0",
+    "recompact": "^3.3.0"
   },
   "peerDependencies": {
     "prop-types": "^15.5.4",
