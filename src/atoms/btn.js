@@ -30,6 +30,8 @@ const dc_btn = (props) => (
           return 'dc-btn--link'
         case 'nofocus': 
           return 'dc-btn--no-focus'
+        case 'block':
+          return 'dc-btn--block'
         default:
           return ''
       }

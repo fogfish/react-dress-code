@@ -64,3 +64,14 @@ storiesOf('Atoms > Buttons', module)
       )
     )
   )
+
+  .add('Button Block',
+    withInfo('')(
+      () => (
+        <div>
+          <Button block>Button Block</Button>
+        </div>
+      )
+    )
+  )
+
