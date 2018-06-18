@@ -44,7 +44,7 @@ const dc_breadcrumb = (props) => (
 export const BreadCrumb = ({ href, children, ...props }) => (
   <li className={dc_breadcrumb(props)}>
     {href 
-      ? <a href={href} class="dc-link">{children}</a>
+      ? <a href={href} className="dc-link">{children}</a>
       : children
     }
   </li>

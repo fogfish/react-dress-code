@@ -2066,7 +2066,7 @@ var BreadCrumb = function BreadCrumb(_ref2) {
     { className: dc_breadcrumb(props) },
     href ? React.createElement(
       'a',
-      { href: href, 'class': 'dc-link' },
+      { href: href, className: 'dc-link' },
       children
     ) : children
   );
