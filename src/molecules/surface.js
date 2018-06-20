@@ -31,7 +31,7 @@ const Data = ({ children, json, onClick }) => (
 
 const accessor = props => (
   props.format 
-    ? props.format(props.json[props.field])
+    ? props.format(props.json)
     : props.json[props.field] ? props.json[props.field] : ''
 )
 

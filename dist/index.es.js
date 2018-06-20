@@ -2196,7 +2196,7 @@ var Data = function Data(_ref2) {
 };
 
 var accessor = function accessor(props) {
-  return props.format ? props.format(props.json[props.field]) : props.json[props.field] ? props.json[props.field] : '';
+  return props.format ? props.format(props.json) : props.json[props.field] ? props.json[props.field] : '';
 };
 
 var Schema = function Schema(_ref3) {

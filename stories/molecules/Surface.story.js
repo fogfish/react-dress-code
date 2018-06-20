@@ -19,7 +19,7 @@ const data = [
 ]
 
 const CustomCell = props => (
-  <Status active={props.json.active}>Element</Status>
+  <Status active={props.json.active}>{props.children ? props.children : ''}</Status>
 )
 
 storiesOf('Molecules > Surface', module)
@@ -31,9 +31,32 @@ storiesOf('Molecules > Surface', module)
             <Schema title="ID" field="id" />
             <Schema title="Title" field="title" />
             <Schema title="Description" field="description" />
-            <Schema title="Link" field="link" Component={CustomCell} />
           </Surface>
         </div>
       )
     )
+  )
+
+  .add('Data Surface with Custom Rendering',
+    withInfo('')(
+      () => (
+        <div>
+          <Surface data={data} onClick={action('data')}>
+            <Schema title="ID" field="id" />
+            <Schema title="Status" field="link" Component={CustomCell} />
+          </Surface>
+        </div>
+      )
+    )
+  )
+
+  .add('Data Surface with formatter',
+      () => (
+        <div>
+          <Surface data={data} onClick={action('data')}>
+            <Schema title="ID" format={json => `# ${json.id}`} />
+            <Schema title="Status" format={json => json.active ? 'active' : 'passive' } Component={CustomCell} />
+          </Surface>
+        </div>
+      )    
   )
