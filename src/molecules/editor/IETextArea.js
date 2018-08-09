@@ -1,5 +1,5 @@
 import React from 'react'
-import Editor from './Editor'
+import IEditor from './IEditor'
 import { TextArea } from '../../atoms/input'
 import toClass from 'recompact/toClass'
 
@@ -9,8 +9,8 @@ const Static = props => (
 
 const Dynamic = toClass(TextArea)
 
-const ETextArea = props => (
-  <Editor 
+const IETextArea = props => (
+  <IEditor 
     Static={Static}
     Dynamic={Dynamic}
     commitWithShift={true}
@@ -18,4 +18,4 @@ const ETextArea = props => (
   />
 ) 
 
-export default ETextArea
+export default IETextArea

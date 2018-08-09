@@ -18,7 +18,7 @@ import './atoms/Status.story'
 import './atoms/Tab.story'
 import './atoms/Table.story'
 
-import './molecules/Editor.story'
+import './molecules/IEditor.story'
 import './molecules/BreadCrumb.story'
 import './molecules/Revealer.story'
 import './molecules/Surface.story'

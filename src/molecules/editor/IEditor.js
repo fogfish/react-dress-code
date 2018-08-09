@@ -32,8 +32,8 @@ const cancel = props => {
 
 const edit_props = ({input, editing, buffer, focus, setInput, setEditing, setValue, setBuffer, onEdit, onCommit, onCancel, ...props}) => (props)
 
-const Editor = ({Static, Dynamic, commitWithShift, ...props}) => (
-  <React.Fragment>
+const IEditor = ({Static, Dynamic, commitWithShift, ...props}) => (
+  <div className="dc-inline-editor">
     {!props.editing &&
       <Static onClick={() => focus(props)}>
         {props.defaultValue}
@@ -60,16 +60,16 @@ const Editor = ({Static, Dynamic, commitWithShift, ...props}) => (
         { ...edit_props(props) }
       />
     }
-  </React.Fragment>
+  </div>
 )
 
-const EditorWithFocus = lifecycle({
+const IEditorWithFocus = lifecycle({
   componentDidUpdate: props => {
     props.focus()
   }
-})(Editor)
+})(IEditor)
 
-const EditorWithState = compose( 
+const IEditorWithState = compose( 
   withState('input', 'setInput', null),
   withState('editing', 'setEditing', false),
   withState('defaultValue', 'setValue', props => props.defaultValue),
@@ -77,7 +77,7 @@ const EditorWithState = compose(
   withHandlers({
     focus: ({ input }) => () => input ? ReactDOM.findDOMNode(input).focus() : null
   }),
-)(EditorWithFocus)
+)(IEditorWithFocus)
 
-export default EditorWithState
+export default IEditorWithState
 

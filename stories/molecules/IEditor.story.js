@@ -10,16 +10,15 @@ import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import { action } from '@storybook/addon-actions'
 
-import { EInput, ETextArea, Label } from '../../src/index'
+import { IEText, IETextArea, IEImage, Label } from '../../src/index'
 
 storiesOf('Molecules > Editor', module)
-  .add('Inline input editor',
+  .add('Inline text editor',
     withInfo('')(
       () => (
         <div>
           <Label sub="click on text to edit, Enter to save, Esc to cancel">Text input</Label>
-          <EInput 
-            id="optInput" 
+          <IEText 
             type="text" 
             defaultValue="Give An Example" 
             onEdit={action("edit")}
@@ -36,9 +35,26 @@ storiesOf('Molecules > Editor', module)
       () => (
         <div>
           <Label sub="click on text to edit, Shift + Enter to save, Esc to cancel, use `white-space: pre-wrap;` to render multi-line text.">Text area</Label>
-          <ETextArea
+          <IETextArea
             cols="30" rows="3"
             defaultValue="Give An Example" 
+            onEdit={action("edit")}
+            onCommit={action("commit")}
+            onCancel={action("cancel")}
+          />
+        </div>
+      )
+    )
+  )
+
+  .add('Inline image editor',
+    withInfo('')(
+      () => (
+        <div>
+          <Label sub="click on text to edit, Enter to save, Esc to cancel">Text input</Label>
+          <IEImage 
+            type="text" 
+            defaultValue="http://via.placeholder.com/350x150" 
             onEdit={action("edit")}
             onCommit={action("commit")}
             onCancel={action("cancel")}

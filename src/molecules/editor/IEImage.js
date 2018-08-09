@@ -1,16 +1,16 @@
 import React from 'react'
-import Editor from './Editor'
+import IEditor from './IEditor'
 import { Input } from '../../atoms/input'
 import toClass from 'recompact/toClass'
 
 const Static = props => (
-  <span {...props}>{props.children}</span>
+  <img src={props.children} onClick={props.onClick} />
 )
 
 const Dynamic = toClass(Input)
 
-const EInput = props => (
-  <Editor 
+const IEImage = props => (
+  <IEditor 
     Static={Static}
     Dynamic={Dynamic}
     commitWithShift={false}
@@ -18,4 +18,4 @@ const EInput = props => (
   />
 ) 
 
-export default EInput
+export default IEImage
