@@ -1862,13 +1862,14 @@ var edit_props = function edit_props(_ref) {
   return props;
 };
 
-var Editor = function Editor(_ref2) {
+var IEditor = function IEditor(_ref2) {
   var Static = _ref2.Static,
       Dynamic = _ref2.Dynamic,
-      props = objectWithoutProperties(_ref2, ['Static', 'Dynamic']);
+      commitWithShift = _ref2.commitWithShift,
+      props = objectWithoutProperties(_ref2, ['Static', 'Dynamic', 'commitWithShift']);
   return React.createElement(
-    React.Fragment,
-    null,
+    'div',
+    { className: 'dc-inline-editor' },
     !props.editing && React.createElement(
       Static,
       { onClick: function onClick() {
@@ -1885,19 +1886,29 @@ var Editor = function Editor(_ref2) {
         return blur(props);
       },
       onKeyDown: function onKeyDown(e) {
-        return e.keyCode === 13 && e.shiftKey ? blur(props) : e.keyCode === 27 ? cancel(props) : true;
+        if (e.keyCode === 13 && !commitWithShift) {
+          blur(props);
+        }
+
+        if (e.keyCode === 13 && commitWithShift && e.shiftKey) {
+          blur(props);
+        }
+
+        if (e.keyCode === 27) {
+          cancel(props);
+        }
       }
     }, edit_props(props)))
   );
 };
 
-var EditorWithFocus = lifecycle({
+var IEditorWithFocus = lifecycle({
   componentDidUpdate: function componentDidUpdate(props) {
     props.focus();
   }
-})(Editor);
+})(IEditor);
 
-var EditorWithState = compose(withState('input', 'setInput', null), withState('editing', 'setEditing', false), withState('defaultValue', 'setValue', function (props) {
+var IEditorWithState = compose(withState('input', 'setInput', null), withState('editing', 'setEditing', false), withState('defaultValue', 'setValue', function (props) {
   return props.defaultValue;
 }), withState('buffer', 'setBuffer', ''), withHandlers({
   focus: function focus(_ref3) {
@@ -1906,7 +1917,7 @@ var EditorWithState = compose(withState('input', 'setInput', null), withState('e
       return input ? ReactDOM.findDOMNode(input).focus() : null;
     };
   }
-}))(EditorWithFocus);
+}))(IEditorWithFocus);
 
 var toClass_1 = createCommonjsModule(function (module, exports) {
 
@@ -1987,7 +1998,7 @@ var toClass = unwrapExports(toClass_1);
 
 var Static = function Static(props) {
   return React.createElement(
-    'span',
+    'p',
     props,
     props.children
   );
@@ -1995,10 +2006,11 @@ var Static = function Static(props) {
 
 var Dynamic = toClass(Input);
 
-var EInput = function EInput(props) {
-  return React.createElement(EditorWithState, _extends({
+var IEText = function IEText(props) {
+  return React.createElement(IEditorWithState, _extends({
     Static: Static,
-    Dynamic: Dynamic
+    Dynamic: Dynamic,
+    commitWithShift: false
   }, props));
 };
 
@@ -2012,10 +2024,25 @@ var Static$1 = function Static(props) {
 
 var Dynamic$1 = toClass(TextArea);
 
-var ETextArea = function ETextArea(props) {
-  return React.createElement(EditorWithState, _extends({
+var IETextArea = function IETextArea(props) {
+  return React.createElement(IEditorWithState, _extends({
     Static: Static$1,
-    Dynamic: Dynamic$1
+    Dynamic: Dynamic$1,
+    commitWithShift: true
+  }, props));
+};
+
+var Static$2 = function Static(props) {
+  return React.createElement('img', { src: props.children, onClick: props.onClick });
+};
+
+var Dynamic$2 = toClass(Input);
+
+var IEImage = function IEImage(props) {
+  return React.createElement(IEditorWithState, _extends({
+    Static: Static$2,
+    Dynamic: Dynamic$2,
+    commitWithShift: false
   }, props));
 };
 
@@ -2229,4 +2256,4 @@ var Surface = function Surface(props) {
 
 //
 
-export { H1, H2, H3, H4, Text, Page, Container, Row, Column, Button, Link, Card, Divider, Checkbox, Switchbox, Label, Input, TextArea, Select, LoadingBar, Status, Tab, TabElement, Table, THead, TBody, TR, TH, TD, EInput, ETextArea, BreadCrumbs, BreadCrumb, Dialog, DialogContent, DialogBody, DialogTitle, DialogSubTitle, DialogActions, SideRevealer, Schema, Surface };
+export { H1, H2, H3, H4, Text, Page, Container, Row, Column, Button, Link, Card, Divider, Checkbox, Switchbox, Label, Input, TextArea, Select, LoadingBar, Status, Tab, TabElement, Table, THead, TBody, TR, TH, TD, IEText, IETextArea, IEImage, BreadCrumbs, BreadCrumb, Dialog, DialogContent, DialogBody, DialogTitle, DialogSubTitle, DialogActions, SideRevealer, Schema, Surface };
