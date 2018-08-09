@@ -13,6 +13,7 @@ const ETextArea = props => (
   <Editor 
     Static={Static}
     Dynamic={Dynamic}
+    commitWithShift={true}
     {...props}
   />
 ) 

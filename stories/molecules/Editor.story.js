@@ -17,7 +17,7 @@ storiesOf('Molecules > Editor', module)
     withInfo('')(
       () => (
         <div>
-          <Label sub="click on text to edit, Shift + Enter to save, Esc to cancel">Text input</Label>
+          <Label sub="click on text to edit, Enter to save, Esc to cancel">Text input</Label>
           <EInput 
             id="optInput" 
             type="text" 
@@ -35,7 +35,7 @@ storiesOf('Molecules > Editor', module)
     withInfo('')(
       () => (
         <div>
-          <Label sub="click on text to edit, Shift + Enter to save, Esc to cancel">Text area</Label>
+          <Label sub="click on text to edit, Shift + Enter to save, Esc to cancel, use `white-space: pre-wrap;` to render multi-line text.">Text area</Label>
           <ETextArea
             cols="30" rows="3"
             defaultValue="Give An Example" 

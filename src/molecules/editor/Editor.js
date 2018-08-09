@@ -32,7 +32,7 @@ const cancel = props => {
 
 const edit_props = ({input, editing, buffer, focus, setInput, setEditing, setValue, setBuffer, onEdit, onCommit, onCancel, ...props}) => (props)
 
-const Editor = ({Static, Dynamic, ...props}) => (
+const Editor = ({Static, Dynamic, commitWithShift, ...props}) => (
   <React.Fragment>
     {!props.editing &&
       <Static onClick={() => focus(props)}>
@@ -44,7 +44,19 @@ const Editor = ({Static, Dynamic, ...props}) => (
         ref={props.setInput}
         onChange={(e) => props.setBuffer(e.target.value)}
         onBlur={() => blur(props)}
-        onKeyDown={(e) => (e.keyCode === 13 && e.shiftKey) ? blur(props) :  e.keyCode === 27 ? cancel(props) : true}
+        onKeyDown={(e) => {
+          if (e.keyCode === 13 && !commitWithShift) {
+            blur(props)
+          }
+
+          if (e.keyCode === 13 && commitWithShift && e.shiftKey) {
+            blur(props)
+          }
+
+          if (e.keyCode === 27) {
+            cancel(props)
+          }
+        }}
         { ...edit_props(props) }
       />
     }

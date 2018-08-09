@@ -13,6 +13,7 @@ const EInput = props => (
   <Editor 
     Static={Static}
     Dynamic={Dynamic}
+    commitWithShift={false}
     {...props}
   />
 ) 
