@@ -36,7 +36,7 @@ const IEditor = ({Static, Dynamic, commitWithShift, ...props}) => (
   <div className="dc-inline-editor">
     {!props.editing &&
       <Static onClick={() => focus(props)}>
-        {props.defaultValue}
+        {props.defaultValue || props.placeholder}
       </Static>
     }
     {props.editing &&
