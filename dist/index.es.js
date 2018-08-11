@@ -1875,7 +1875,7 @@ var IEditor = function IEditor(_ref2) {
       { onClick: function onClick() {
           return focus(props);
         } },
-      props.defaultValue
+      props.defaultValue || props.placeholder
     ),
     props.editing && React.createElement(Dynamic, _extends({
       ref: props.setInput,
