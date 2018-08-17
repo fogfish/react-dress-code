@@ -1834,7 +1834,6 @@ var blur = function blur(props) {
     props.setBuffer('');
     props.onCancel ? props.onCancel(props.defaultValue) : null;
   } else {
-    props.setValue(props.buffer);
     props.setBuffer('');
     props.onCommit ? props.onCommit(props.buffer) : null;
   }
@@ -1908,9 +1907,7 @@ var IEditorWithFocus = lifecycle({
   }
 })(IEditor);
 
-var IEditorWithState = compose(withState('input', 'setInput', null), withState('editing', 'setEditing', false), withState('defaultValue', 'setValue', function (props) {
-  return props.defaultValue;
-}), withState('buffer', 'setBuffer', ''), withHandlers({
+var IEditorWithState = compose(withState('input', 'setInput', null), withState('editing', 'setEditing', false), withState('buffer', 'setBuffer', ''), withHandlers({
   focus: function focus(_ref3) {
     var input = _ref3.input;
     return function () {
