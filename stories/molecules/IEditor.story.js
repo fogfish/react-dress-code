@@ -9,8 +9,47 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import { action } from '@storybook/addon-actions'
+import withState from 'recompact/withState'
 
 import { IEText, IETextArea, IEImage, Label } from '../../src/index'
+
+
+const IETextStory = 
+  withState('text', 'setText', props => props.text)(
+    props => 
+      <IEText
+        defaultValue={props.text} 
+        onEdit={action("edit")}
+        onCommit={text => {props.setText(text); action("commit")(text)}}
+        onCancel={action("cancel")}
+        { ...props }
+      />
+  )
+
+const IETextAreaStory =
+  withState('text', 'setText', props => props.text)(
+    props => 
+      <IETextArea
+        cols="30" rows="3"
+        defaultValue={props.text}
+        onEdit={action("edit")}
+        onCommit={text => {props.setText(text); action("commit")(text)}}
+        onCancel={action("cancel")}
+        { ...props }
+      />
+  )  
+
+const IEImageStory = 
+  withState('text', 'setText', props => props.text)(
+    props =>
+      <IEImage 
+        defaultValue={props.text} 
+        onEdit={action("edit")}
+        onCommit={text => {props.setText(text); action("commit")(text)}}
+        onCancel={action("cancel")}
+        { ...props }
+      />
+  )
 
 storiesOf('Molecules > Editor', module)
   .add('Inline text editor',
@@ -18,13 +57,7 @@ storiesOf('Molecules > Editor', module)
       () => (
         <div>
           <Label sub="click on text to edit, Enter to save, Esc to cancel">Text input</Label>
-          <IEText 
-            type="text" 
-            defaultValue="Give An Example" 
-            onEdit={action("edit")}
-            onCommit={action("commit")}
-            onCancel={action("cancel")}
-          />
+          <IETextStory text="Give An Example" />
         </div>
       )
     )
@@ -35,14 +68,7 @@ storiesOf('Molecules > Editor', module)
       () => (
         <div>
           <Label sub="click on text to edit, Enter to save, Esc to cancel">Text input</Label>
-          <IEText 
-            type="text"
-            defaultValue=""
-            placeholder="e.g. give an example"
-            onEdit={action("edit")}
-            onCommit={action("commit")}
-            onCancel={action("cancel")}
-          />
+          <IETextStory placeholder="e.g. give an example" />
         </div>
       )
     )
@@ -53,13 +79,7 @@ storiesOf('Molecules > Editor', module)
       () => (
         <div>
           <Label sub="click on text to edit, Shift + Enter to save, Esc to cancel, use `white-space: pre-wrap;` to render multi-line text.">Text area</Label>
-          <IETextArea
-            cols="30" rows="3"
-            defaultValue="Give An Example" 
-            onEdit={action("edit")}
-            onCommit={action("commit")}
-            onCancel={action("cancel")}
-          />
+          <IETextAreaStory text="Give An Example" />
         </div>
       )
     )
@@ -70,14 +90,7 @@ storiesOf('Molecules > Editor', module)
       () => (
         <div>
           <Label sub="click on text to edit, Shift + Enter to save, Esc to cancel, use `white-space: pre-wrap;` to render multi-line text.">Text area</Label>
-          <IETextArea
-            cols="30" rows="3"
-            defaultValue="" 
-            placeholder="Give An Example"
-            onEdit={action("edit")}
-            onCommit={action("commit")}
-            onCancel={action("cancel")}
-          />
+          <IETextAreaStory placeholder="Give An Example" />
         </div>
       )
     )
@@ -88,13 +101,7 @@ storiesOf('Molecules > Editor', module)
       () => (
         <div>
           <Label sub="click on text to edit, Enter to save, Esc to cancel">Text input</Label>
-          <IEImage 
-            type="text" 
-            defaultValue="http://via.placeholder.com/350x150" 
-            onEdit={action("edit")}
-            onCommit={action("commit")}
-            onCancel={action("cancel")}
-          />
+          <IEImageStory text="http://via.placeholder.com/350x150" />
         </div>
       )
     )
@@ -105,14 +112,7 @@ storiesOf('Molecules > Editor', module)
       () => (
         <div>
           <Label sub="click on text to edit, Enter to save, Esc to cancel">Text input</Label>
-          <IEImage 
-            type="text" 
-            defaultValue=""
-            placeholder="http://via.placeholder.com/350x150"
-            onEdit={action("edit")}
-            onCommit={action("commit")}
-            onCancel={action("cancel")}
-          />
+          <IEImageStory placeholder="http://via.placeholder.com/350x150" />
         </div>
       )
     )

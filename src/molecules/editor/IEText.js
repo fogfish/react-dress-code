@@ -10,7 +10,7 @@ const Static = props => (
 const Dynamic = toClass(Input)
 
 const IEText = props => (
-  <IEditor 
+  <IEditor
     Static={Static}
     Dynamic={Dynamic}
     commitWithShift={false}

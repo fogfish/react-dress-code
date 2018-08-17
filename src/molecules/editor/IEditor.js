@@ -18,7 +18,6 @@ const blur = props => {
     props.setBuffer('')
     props.onCancel ? props.onCancel(props.defaultValue) : null
   } else {
-    props.setValue(props.buffer)
     props.setBuffer('')
     props.onCommit ? props.onCommit(props.buffer) : null
   }
@@ -72,7 +71,6 @@ const IEditorWithFocus = lifecycle({
 const IEditorWithState = compose( 
   withState('input', 'setInput', null),
   withState('editing', 'setEditing', false),
-  withState('defaultValue', 'setValue', props => props.defaultValue),
   withState('buffer', 'setBuffer', ''),
   withHandlers({
     focus: ({ input }) => () => input ? ReactDOM.findDOMNode(input).focus() : null
