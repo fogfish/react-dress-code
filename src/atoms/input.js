@@ -7,6 +7,7 @@
 //
 import React from 'react'
 import { dc, id } from '../core/dress-code' 
+import './input.css'
 
 //
 //
@@ -95,6 +96,8 @@ const dc_input = (props) => (
           return 'dc-input--small'
         case 'iserror':
           return 'dc-input--is-error'
+        case 'in-group':
+          return 'dc-input--in-input-group'
         default: 
           return ''
       }
@@ -120,6 +123,8 @@ const dc_textarea = (props) => (
           return 'dc-textarea--small'
         case 'iserror':
           return 'dc-textarea--is-error'
+        case 'in-group':
+          return 'dc-textarea--in-input-group'
         default: 
           return ''
       }
@@ -153,11 +158,66 @@ const dc_select = (props) => (
   )
 )
 
+const dc_select_props = ({ small, iserror, ...props }) => (props)
+
+
 export const Select = ({ className, children, ...props }) => (
-  <select className={dc_select(props)} name={props.id} { ...dc_input_props(props) }>
+  <select className={dc_select(props)} name={props.id} { ...dc_select_props(props) }>
     {children}
   </select>
 
 )
 
+//
+//
+export const InputStack = ({ children }) => (
+  <div class="dc-input-stack">
+    {children}
+  </div>
+)
+
+
+//
+//
+const dc_static = (props) => (
+  dc(props, 'dc-static',
+    (key, _) => {
+      switch(key) {
+        case 'in-group': 
+          return 'dc-static--in-input-group'
+        default: 
+          return ''
+      }
+    }
+  )
+)
+
+
+export const Static = ({ children, ...props }) => (
+  <div className={dc_static(props)} {...props}>
+    {children}
+  </div>
+)
+
+
+//
+//
+const dc_static_text = (props) => (
+  dc(props, 'dc-static-text',
+    (key, _) => {
+      switch(key) {
+        case 'in-group': 
+          return 'dc-static-text--in-input-group'
+        default: 
+          return ''
+      }
+    }
+  )
+)
+
+export const StaticText = ({ children, ...props }) => (
+  <div className={dc_static_text(props)} {...props}>
+    {children}
+  </div>
+)
 

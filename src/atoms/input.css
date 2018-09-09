@@ -1,0 +1,76 @@
+/*
+// Copyright (C) 2018 Dmitry Kolesnikov
+//
+// This file may be modified and distributed under the terms
+// of the MIT license. See the LICENSE file for details.
+// https://github.com/fogfish/react-dress-code
+//
+*/
+
+.dc-static
+{
+   display: inline-block;
+   margin: 0;
+   padding: .9rem .8rem;
+   border: 1px solid #d1d1d1;
+   box-shadow: inset 0 1px 1px transparent;
+   font-size: 1.4rem;
+   font-weight: 300;
+   line-height: normal;
+}
+
+.dc-static--in-input-group:first-child
+{
+   border-top-left-radius: 2px;
+   border-bottom-left-radius: 2px;
+}
+
+
+.dc-static-text
+{
+   display: inline-block;
+   margin: 0;
+   padding: .7rem .8rem;
+
+   border: 1px solid #d1d1d1;
+   box-shadow: inset 0 1px 1px transparent;
+
+   font-size: 1.4rem;
+   font-weight: 300;
+   line-height: normal;
+   min-height: 8rem;
+   width: 100%;
+}
+
+.dc-textarea--in-input-group
+{
+   margin-right: 0;
+   margin-bottom: 0;
+   margin-left: 0;
+   border-radius: 0;
+}
+
+.dc-btn--in-input-text-group
+{
+   max-height: 4rem;
+}
+
+.dc-btn--in-input-text-group:first-child
+{
+   border-top-right-radius: 2px;
+   border-top-left-radius: 0px;
+   border-bottom-right-radius: 0px;
+   border-bottom-left-radius: 0px;
+   border-left-width: 0px;
+   border-right-width: 0px;
+}
+
+.dc-btn--in-input-text-group:last-child
+{
+   border-top-right-radius: 0px;
+   border-top-left-radius: 0px;
+   border-bottom-right-radius: 2px !important;
+   border-bottom-left-radius: 0px;
+   border-left-width: 0px;
+   border-right-width: 0px;
+}

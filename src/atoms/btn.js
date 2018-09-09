@@ -32,6 +32,10 @@ const dc_btn = (props) => (
           return 'dc-btn--no-focus'
         case 'block':
           return 'dc-btn--block'
+        case 'in-group':
+          return 'dc-btn--in-input-group'
+        case 'with-text':
+          return 'dc-btn--in-input-text-group'
         default:
           return ''
       }

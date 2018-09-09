@@ -74,12 +74,34 @@ storiesOf('Molecules > Editor', module)
     )
   )
 
+  .add('Inline text editor with buttons',
+    withInfo('')(
+      () => (
+        <div>
+          <Label>Text input with Buttons</Label>
+          <IETextStory commitWithButtons text="Give An Example" />
+        </div>
+      )
+    )
+  )
+
   .add('Inline textarea editor',
     withInfo('')(
       () => (
         <div>
           <Label sub="click on text to edit, Shift + Enter to save, Esc to cancel, use `white-space: pre-wrap;` to render multi-line text.">Text area</Label>
           <IETextAreaStory text="Give An Example" />
+        </div>
+      )
+    )
+  )
+
+  .add('Inline textarea editor with buttons',
+    withInfo('')(
+      () => (
+        <div>
+          <Label sub="click on text to edit, Shift + Enter to save, Esc to cancel, use `white-space: pre-wrap;` to render multi-line text.">Text area</Label>
+          <IETextAreaStory commitWithVerticalButtons text="Give An Example" />
         </div>
       )
     )

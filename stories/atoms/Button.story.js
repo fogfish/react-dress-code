@@ -9,7 +9,7 @@ import React from 'react'
 import { withInfo } from '@storybook/addon-info'
 import { storiesOf } from '@storybook/react'
 
-import { Button, Link } from '../../src/index'
+import { Button, Icon, Link } from '../../src/index'
 
 storiesOf('Atoms > Buttons', module)
   .add('Basic Buttons',
@@ -75,3 +75,36 @@ storiesOf('Atoms > Buttons', module)
     )
   )
 
+  .add('Button with Icons',
+    withInfo('')(
+      () => (
+        <div>
+          <Button><Icon id="history" button/></Button>
+          <Button primary><Icon id="pencil" button/></Button>
+          <Button>Undo <Icon id="undo" button left/></Button>
+          <Button disabled>Redo <Icon id="redo" button right/></Button>
+          <Button destroy><Icon id="trash" button/></Button>
+
+          <Button small>Redo <Icon id="redo" button left small/></Button>
+          <Button destroy large>Lock <Icon id="lock" button right large/></Button>
+        </div>
+      )
+    )
+  )
+
+
+  .add('Link with Icons',
+    withInfo('')(
+      () => (
+        <div>
+          <Button link><Icon id="history" button/></Button>
+          <Button link>Undo <Icon id="undo" button left/></Button>
+          <Button link disabled>Redo <Icon id="redo" button right/></Button>
+          <Button link destroy><Icon id="trash" button/></Button>
+
+          <Button link small>Redo <Icon id="redo" button left small/></Button>
+          <Button link destroy large>Lock <Icon id="lock" button right large/></Button>
+        </div>
+      )
+    )
+  )
