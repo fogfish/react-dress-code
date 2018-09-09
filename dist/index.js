@@ -229,6 +229,10 @@ var dc_btn = function dc_btn(props) {
         return 'dc-btn--no-focus';
       case 'block':
         return 'dc-btn--block';
+      case 'in-group':
+        return 'dc-btn--in-input-group';
+      case 'with-text':
+        return 'dc-btn--in-input-text-group';
       default:
         return '';
     }
@@ -309,6 +313,40 @@ var Divider = function Divider(_ref2) {
       props = objectWithoutProperties(_ref2, ['className', 'children']);
   return React.createElement('hr', _extends({ className: dc_divider(props) }, dc_divider_props(props)));
 };
+
+//
+
+//
+//
+var dc_icon = function dc_icon(props) {
+  return dc(props, 'dc-icon', function (key, val) {
+    switch (key) {
+      case 'id':
+        return 'dc-icon--' + val;
+      case 'button':
+        return 'dc-icon--btn';
+      case 'right':
+        return 'dc-icon--btn--right';
+      case 'left':
+        return 'dc-icon--btn--left';
+      case 'small':
+        return 'dc-icon--btn-small';
+      case 'large':
+        return 'dc-icon--btn-large';
+      case 'spin':
+        return 'dc-icon--spin';
+      default:
+        return '';
+    }
+  });
+};
+
+var Icon = function Icon(props) {
+  return React.createElement('i', { className: dc_icon(props) });
+};
+
+var css = "/*\n// Copyright (C) 2018 Dmitry Kolesnikov\n//\n// This file may be modified and distributed under the terms\n// of the MIT license. See the LICENSE file for details.\n// https://github.com/fogfish/react-dress-code\n//\n*/\n\n.input_dc-static__1AkP3\n{\n   display: inline-block;\n   margin: 0;\n   padding: .9rem .8rem;\n   border: 1px solid #d1d1d1;\n   box-shadow: inset 0 1px 1px #d1d1d1;\n   font-size: 1.4rem;\n   font-weight: 300;\n   line-height: normal;\n   min-height: 3.7rem;\n   border-radius: 2px;\n}\n\n.input_dc-static__1AkP3:hover\n{\n   border: 1px solid #c1c1c1;\n}\n\n\n.input_dc-static--in-input-group__1Nfwn:first-child\n{\n   border-top-left-radius: 2px;\n   border-bottom-left-radius: 2px;\n}\n\n\n.input_dc-static-text__2yPAG\n{\n   display: inline-block;\n   margin: 0;\n   padding: .7rem .8rem;\n\n   border: 1px solid #d1d1d1;\n   box-shadow: inset 0 1px 1px transparent;\n\n   font-size: 1.4rem;\n   font-weight: 300;\n   line-height: normal;\n   min-height: 8rem;\n   width: 100%;\n}\n\n.input_dc-textarea--in-input-group__1ms0y\n{\n   margin-right: 0;\n   margin-bottom: 0;\n   margin-left: 0;\n   border-radius: 0;\n}\n\n.input_dc-btn--in-input-text-group__VJbFY\n{\n   max-height: 4rem;\n}\n\n.input_dc-btn--in-input-text-group__VJbFY:first-child\n{\n   border-top-right-radius: 2px;\n   border-top-left-radius: 0px;\n   border-bottom-right-radius: 0px;\n   border-bottom-left-radius: 0px;\n   border-left-width: 0px;\n   border-right-width: 0px;\n}\n\n.input_dc-btn--in-input-text-group__VJbFY:last-child\n{\n   border-top-right-radius: 0px;\n   border-top-left-radius: 0px;\n   border-bottom-right-radius: 2px !important;\n   border-bottom-left-radius: 0px;\n   border-left-width: 0px;\n   border-right-width: 0px;\n}\n";
+__$$styleInject(css);
 
 //
 
@@ -413,6 +451,8 @@ var dc_input = function dc_input(props) {
         return 'dc-input--small';
       case 'iserror':
         return 'dc-input--is-error';
+      case 'in-group':
+        return 'dc-input--in-input-group';
       default:
         return '';
     }
@@ -442,6 +482,8 @@ var dc_textarea = function dc_textarea(props) {
         return 'dc-textarea--small';
       case 'iserror':
         return 'dc-textarea--is-error';
+      case 'in-group':
+        return 'dc-textarea--in-input-group';
       default:
         return '';
     }
@@ -476,13 +518,71 @@ var dc_select = function dc_select(props) {
   });
 };
 
-var Select = function Select(_ref7) {
-  var className = _ref7.className,
-      children = _ref7.children,
-      props = objectWithoutProperties(_ref7, ['className', 'children']);
+var dc_select_props = function dc_select_props(_ref7) {
+  var small = _ref7.small,
+      iserror = _ref7.iserror,
+      props = objectWithoutProperties(_ref7, ['small', 'iserror']);
+  return props;
+};
+
+var Select = function Select(_ref8) {
+  var className = _ref8.className,
+      children = _ref8.children,
+      props = objectWithoutProperties(_ref8, ['className', 'children']);
   return React.createElement(
     'select',
-    _extends({ className: dc_select(props), name: props.id }, dc_input_props(props)),
+    _extends({ className: dc_select(props), name: props.id }, dc_select_props(props)),
+    children
+  );
+};
+var InputStack = function InputStack(_ref9) {
+  var children = _ref9.children;
+  return React.createElement(
+    'div',
+    { 'class': 'dc-input-stack' },
+    children
+  );
+};
+
+//
+//
+var dc_static = function dc_static(props) {
+  return dc(props, 'dc-static', function (key, _) {
+    switch (key) {
+      case 'in-group':
+        return 'dc-static--in-input-group';
+      default:
+        return '';
+    }
+  });
+};
+
+var Static = function Static(_ref10) {
+  var children = _ref10.children,
+      props = objectWithoutProperties(_ref10, ['children']);
+  return React.createElement(
+    'div',
+    _extends({ className: dc_static(props) }, props),
+    children
+  );
+};
+var dc_static_text = function dc_static_text(props) {
+  return dc(props, 'dc-static-text', function (key, _) {
+    switch (key) {
+      case 'in-group':
+        return 'dc-static-text--in-input-group';
+      default:
+        return '';
+    }
+  });
+};
+
+var StaticText = function StaticText(_ref11) {
+  var children = _ref11.children,
+      props = objectWithoutProperties(_ref11, ['children']);
+  return React.createElement(
+    'div',
+    _extends({ className: dc_static_text(props) }, props),
     children
   );
 };
@@ -691,6 +791,38 @@ var TD = function TD(_ref7) {
     { className: 'dc-table__td' },
     children
   );
+};
+
+var css$1 = "/*\n// Copyright (C) 2018 Dmitry Kolesnikov\n//\n// This file may be modified and distributed under the terms\n// of the MIT license. See the LICENSE file for details.\n// https://github.com/fogfish/react-dress-code\n*/\n\n.input-group_dc-input-group--vertical-buttons__21_Vg\n{\n  display: flex;\n  flex-direction: column;\n}\n";
+__$$styleInject(css$1);
+
+//
+
+var InputGroup = function InputGroup(_ref) {
+   var children = _ref.children;
+   return React.createElement(
+      'div',
+      { className: 'dc-input-group' },
+      children
+   );
+};
+
+var AddOn = function AddOn(_ref2) {
+   var children = _ref2.children;
+   return React.createElement(
+      'div',
+      { className: 'dc-input-addon' },
+      children
+   );
+};
+
+var VerticalButtons = function VerticalButtons(_ref3) {
+   var children = _ref3.children;
+   return React.createElement(
+      'div',
+      { className: 'dc-input-group--vertical-buttons' },
+      children
+   );
 };
 
 function unwrapExports (x) {
@@ -1828,6 +1960,12 @@ exports.default = (0, _createHelper2.default)(withHandlers, 'withHandlers');
 
 var withHandlers = unwrapExports(withHandlers_1);
 
+//
+// Note: design is driven by
+// https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component
+// 
+// A fully controlled component pattern is used.
+
 var focus = function focus(props) {
   props.setEditing(true);
   props.setBuffer(props.defaultValue);
@@ -1871,7 +2009,9 @@ var IEditor = function IEditor(_ref2) {
   var Static = _ref2.Static,
       Dynamic = _ref2.Dynamic,
       commitWithShift = _ref2.commitWithShift,
-      props = objectWithoutProperties(_ref2, ['Static', 'Dynamic', 'commitWithShift']);
+      commitWithButtons = _ref2.commitWithButtons,
+      commitWithVerticalButtons = _ref2.commitWithVerticalButtons,
+      props = objectWithoutProperties(_ref2, ['Static', 'Dynamic', 'commitWithShift', 'commitWithButtons', 'commitWithVerticalButtons']);
   return React.createElement(
     'div',
     { className: 'dc-inline-editor' },
@@ -1882,28 +2022,69 @@ var IEditor = function IEditor(_ref2) {
         } },
       props.defaultValue || props.placeholder
     ),
-    props.editing && React.createElement(Dynamic, _extends({
-      ref: props.setInput,
-      onChange: function onChange(e) {
-        return props.setBuffer(e.target.value);
-      },
-      onBlur: function onBlur() {
-        return blur(props);
-      },
-      onKeyDown: function onKeyDown(e) {
-        if (e.keyCode === 13 && !commitWithShift) {
-          blur(props);
-        }
+    props.editing && React.createElement(
+      InputGroup,
+      null,
+      React.createElement(Dynamic, _extends({
+        'in-group': true,
+        ref: props.setInput,
+        onChange: function onChange(e) {
+          return props.setBuffer(e.target.value);
+        },
+        onBlur: function onBlur() {
+          return !commitWithButtons && !commitWithVerticalButtons && blur(props);
+        },
+        onKeyDown: function onKeyDown(e) {
+          if (e.keyCode === 13 && !commitWithShift) {
+            blur(props);
+          }
 
-        if (e.keyCode === 13 && commitWithShift && e.shiftKey) {
-          blur(props);
-        }
+          if (e.keyCode === 13 && commitWithShift && e.shiftKey) {
+            blur(props);
+          }
 
-        if (e.keyCode === 27) {
-          cancel(props);
+          if (e.keyCode === 27) {
+            cancel(props);
+          }
         }
-      }
-    }, edit_props(props)))
+      }, edit_props(props))),
+      commitWithButtons && React.createElement(
+        React.Fragment,
+        null,
+        React.createElement(
+          Button,
+          { primary: true, 'in-group': true, onClick: function onClick() {
+              return blur(props);
+            } },
+          React.createElement(Icon, { id: 'success' })
+        ),
+        React.createElement(
+          Button,
+          { destroy: true, 'in-group': true, onClick: function onClick() {
+              return cancel(props);
+            } },
+          React.createElement(Icon, { id: 'undo' })
+        )
+      ),
+      commitWithVerticalButtons && React.createElement(
+        VerticalButtons,
+        null,
+        React.createElement(
+          Button,
+          { primary: true, 'in-group': true, onClick: function onClick() {
+              return blur(props);
+            } },
+          React.createElement(Icon, { id: 'success' })
+        ),
+        React.createElement(
+          Button,
+          { destroy: true, 'in-group': true, onClick: function onClick() {
+              return cancel(props);
+            } },
+          React.createElement(Icon, { id: 'undo' })
+        )
+      )
+    )
   );
 };
 
@@ -1999,14 +2180,6 @@ exports.default = toClass;
 
 var toClass = unwrapExports(toClass_1);
 
-var Static = function Static(props) {
-  return React.createElement(
-    'p',
-    props,
-    props.children
-  );
-};
-
 var Dynamic = toClass(Input);
 
 var IEText = function IEText(props) {
@@ -2017,25 +2190,17 @@ var IEText = function IEText(props) {
   }, props));
 };
 
-var Static$1 = function Static(props) {
-  return React.createElement(
-    'p',
-    props,
-    props.children
-  );
-};
-
 var Dynamic$1 = toClass(TextArea);
 
 var IETextArea = function IETextArea(props) {
   return React.createElement(IEditorWithState, _extends({
-    Static: Static$1,
+    Static: StaticText,
     Dynamic: Dynamic$1,
     commitWithShift: true
   }, props));
 };
 
-var Static$2 = function Static(props) {
+var Static$1 = function Static$$1(props) {
   return React.createElement('img', { src: props.children, onClick: props.onClick });
 };
 
@@ -2043,7 +2208,7 @@ var Dynamic$2 = toClass(Input);
 
 var IEImage = function IEImage(props) {
   return React.createElement(IEditorWithState, _extends({
-    Static: Static$2,
+    Static: Static$1,
     Dynamic: Dynamic$2,
     commitWithShift: false
   }, props));
@@ -2272,12 +2437,16 @@ exports.Button = Button;
 exports.Link = Link;
 exports.Card = Card;
 exports.Divider = Divider;
+exports.Icon = Icon;
 exports.Checkbox = Checkbox;
 exports.Switchbox = Switchbox;
 exports.Label = Label;
 exports.Input = Input;
 exports.TextArea = TextArea;
 exports.Select = Select;
+exports.InputStack = InputStack;
+exports.Static = Static;
+exports.StaticText = StaticText;
 exports.LoadingBar = LoadingBar;
 exports.Status = Status;
 exports.Tab = Tab;
@@ -2299,6 +2468,9 @@ exports.DialogBody = DialogBody;
 exports.DialogTitle = DialogTitle;
 exports.DialogSubTitle = DialogSubTitle;
 exports.DialogActions = DialogActions;
+exports.InputGroup = InputGroup;
+exports.AddOn = AddOn;
+exports.VerticalButtons = VerticalButtons;
 exports.SideRevealer = SideRevealer;
 exports.Schema = Schema;
 exports.Surface = Surface;
