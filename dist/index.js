@@ -314,6 +314,9 @@ var Divider = function Divider(_ref2) {
   return React.createElement('hr', _extends({ className: dc_divider(props) }, dc_divider_props(props)));
 };
 
+var css = "/*\n// Copyright (C) 2018 Dmitry Kolesnikov\n//\n// This file may be modified and distributed under the terms\n// of the MIT license. See the LICENSE file for details.\n// https://github.com/fogfish/react-dress-code\n//\n*/\n.dc-static\n{\n   display: inline-block;\n   margin: 0;\n   padding: .9rem .8rem;\n   border: 1px solid #d1d1d1;\n   box-shadow: inset 0 1px 1px #d1d1d1;\n   font-size: 1.4rem;\n   font-weight: 300;\n   line-height: normal;\n   min-height: 3.7rem;\n   border-radius: 2px;\n}\n\n.dc-static:hover\n{\n   border: 1px solid #c1c1c1;\n}\n\n\n.dc-static--in-input-group:first-child\n{\n   border-top-left-radius: 2px;\n   border-bottom-left-radius: 2px;\n}\n\n\n.dc-static-text\n{\n   display: inline-block;\n   margin: 0;\n   padding: .7rem .8rem;\n\n   border: 1px solid #d1d1d1;\n   box-shadow: inset 0 1px 1px transparent;\n\n   font-size: 1.4rem;\n   font-weight: 300;\n   line-height: normal;\n   min-height: 8rem;\n   width: 100%;\n}\n\n.dc-textarea--in-input-group\n{\n   margin-right: 0;\n   margin-bottom: 0;\n   margin-left: 0;\n   border-radius: 0;\n}\n\n.dc-btn--in-input-text-group\n{\n   max-height: 4rem;\n}\n\n.dc-btn--in-input-text-group:first-child\n{\n   border-top-right-radius: 2px;\n   border-top-left-radius: 0px;\n   border-bottom-right-radius: 0px;\n   border-bottom-left-radius: 0px;\n   border-left-width: 0px;\n   border-right-width: 0px;\n}\n\n.dc-btn--in-input-text-group:last-child\n{\n   border-top-right-radius: 0px;\n   border-top-left-radius: 0px;\n   border-bottom-right-radius: 2px !important;\n   border-bottom-left-radius: 0px;\n   border-left-width: 0px;\n   border-right-width: 0px;\n}\n";
+__$$styleInject(css);
+
 //
 
 //
@@ -344,9 +347,6 @@ var dc_icon = function dc_icon(props) {
 var Icon = function Icon(props) {
   return React.createElement('i', { className: dc_icon(props) });
 };
-
-var css = "/*\n// Copyright (C) 2018 Dmitry Kolesnikov\n//\n// This file may be modified and distributed under the terms\n// of the MIT license. See the LICENSE file for details.\n// https://github.com/fogfish/react-dress-code\n//\n*/\n\n.input_dc-static__1AkP3\n{\n   display: inline-block;\n   margin: 0;\n   padding: .9rem .8rem;\n   border: 1px solid #d1d1d1;\n   box-shadow: inset 0 1px 1px #d1d1d1;\n   font-size: 1.4rem;\n   font-weight: 300;\n   line-height: normal;\n   min-height: 3.7rem;\n   border-radius: 2px;\n}\n\n.input_dc-static__1AkP3:hover\n{\n   border: 1px solid #c1c1c1;\n}\n\n\n.input_dc-static--in-input-group__1Nfwn:first-child\n{\n   border-top-left-radius: 2px;\n   border-bottom-left-radius: 2px;\n}\n\n\n.input_dc-static-text__2yPAG\n{\n   display: inline-block;\n   margin: 0;\n   padding: .7rem .8rem;\n\n   border: 1px solid #d1d1d1;\n   box-shadow: inset 0 1px 1px transparent;\n\n   font-size: 1.4rem;\n   font-weight: 300;\n   line-height: normal;\n   min-height: 8rem;\n   width: 100%;\n}\n\n.input_dc-textarea--in-input-group__1ms0y\n{\n   margin-right: 0;\n   margin-bottom: 0;\n   margin-left: 0;\n   border-radius: 0;\n}\n\n.input_dc-btn--in-input-text-group__VJbFY\n{\n   max-height: 4rem;\n}\n\n.input_dc-btn--in-input-text-group__VJbFY:first-child\n{\n   border-top-right-radius: 2px;\n   border-top-left-radius: 0px;\n   border-bottom-right-radius: 0px;\n   border-bottom-left-radius: 0px;\n   border-left-width: 0px;\n   border-right-width: 0px;\n}\n\n.input_dc-btn--in-input-text-group__VJbFY:last-child\n{\n   border-top-right-radius: 0px;\n   border-top-left-radius: 0px;\n   border-bottom-right-radius: 2px !important;\n   border-bottom-left-radius: 0px;\n   border-left-width: 0px;\n   border-right-width: 0px;\n}\n";
-__$$styleInject(css);
 
 //
 
@@ -793,7 +793,7 @@ var TD = function TD(_ref7) {
   );
 };
 
-var css$1 = "/*\n// Copyright (C) 2018 Dmitry Kolesnikov\n//\n// This file may be modified and distributed under the terms\n// of the MIT license. See the LICENSE file for details.\n// https://github.com/fogfish/react-dress-code\n*/\n\n.input-group_dc-input-group--vertical-buttons__21_Vg\n{\n  display: flex;\n  flex-direction: column;\n}\n";
+var css$1 = "/*\n// Copyright (C) 2018 Dmitry Kolesnikov\n//\n// This file may be modified and distributed under the terms\n// of the MIT license. See the LICENSE file for details.\n// https://github.com/fogfish/react-dress-code\n//\n*/\n\n.dc-input-group--vertical-buttons\n{\n  display: flex;\n  flex-direction: column;\n}\n";
 __$$styleInject(css$1);
 
 //
