@@ -21,7 +21,7 @@ export default {
   plugins: [
     external(),
     postcss({
-      modules: true
+      modules: false
     }),
     babel({
       exclude: 'node_modules/**',

@@ -7,7 +7,6 @@
 //
 import React from 'react'
 import { dc, id } from '../core/dress-code' 
-import './input.css'
 
 //
 //
