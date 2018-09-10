@@ -11,8 +11,7 @@
    display: inline-block;
    margin: 0;
    padding: .9rem .8rem;
-   border: 1px solid #d1d1d1;
-   box-shadow: inset 0 1px 1px #d1d1d1;
+   border: 1px solid white;
    font-size: 1.4rem;
    font-weight: 300;
    line-height: normal;
@@ -22,7 +21,8 @@
 
 .dc-static:hover
 {
-   border: 1px solid #c1c1c1;
+   border: 1px solid #029cfe;
+   box-shadow: inset 0 1px 1px #d1d1d1;
 }
 
 
@@ -39,14 +39,19 @@
    margin: 0;
    padding: .7rem .8rem;
 
-   border: 1px solid #d1d1d1;
-   box-shadow: inset 0 1px 1px transparent;
+   border: 1px solid white;
 
    font-size: 1.4rem;
    font-weight: 300;
    line-height: normal;
    min-height: 8rem;
    width: 100%;
+}
+
+.dc-static-text:hover
+{
+   border: 1px solid #029cfe;
+   box-shadow: inset 0 1px 1px #d1d1d1;
 }
 
 .dc-textarea--in-input-group
