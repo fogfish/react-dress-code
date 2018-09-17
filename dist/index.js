@@ -233,6 +233,8 @@ var dc_btn = function dc_btn(props) {
         return 'dc-btn--in-input-group';
       case 'with-text':
         return 'dc-btn--in-input-text-group';
+      case 'in-message':
+        return 'dc-msg__bd__link';
       default:
         return '';
     }
@@ -248,7 +250,11 @@ var dc_btn_props = function dc_btn_props(_ref) {
       disabled = _ref.disabled,
       link = _ref.link,
       nofocus = _ref.nofocus,
-      props = objectWithoutProperties(_ref, ['large', 'small', 'primary', 'destroy', 'active', 'disabled', 'link', 'nofocus']);
+      block = _ref.block,
+      ingroup = _ref['in-group'],
+      withtext = _ref['with-text'],
+      inmessage = _ref['in-message'],
+      props = objectWithoutProperties(_ref, ['large', 'small', 'primary', 'destroy', 'active', 'disabled', 'link', 'nofocus', 'block', 'in-group', 'with-text', 'in-message']);
   return props;
 };
 
@@ -262,13 +268,24 @@ var Button = function Button(_ref2) {
     children
   );
 };
+var dc_link = function dc_link(props) {
+  return dc(props, 'dc-link', function (key, _) {
+    switch (key) {
+      case 'in-message':
+        return 'dc-msg__bd__link';
+      default:
+        return '';
+    }
+  });
+};
+
 var Link = function Link(_ref3) {
   var className = _ref3.className,
       children = _ref3.children,
       props = objectWithoutProperties(_ref3, ['className', 'children']);
   return React.createElement(
     'a',
-    _extends({ className: dc_btn(props) }, dc_btn_props(props)),
+    _extends({ className: dc_link(props) }, dc_btn_props(props)),
     children
   );
 };
@@ -314,9 +331,6 @@ var Divider = function Divider(_ref2) {
   return React.createElement('hr', _extends({ className: dc_divider(props) }, dc_divider_props(props)));
 };
 
-var css = "/*\n// Copyright (C) 2018 Dmitry Kolesnikov\n//\n// This file may be modified and distributed under the terms\n// of the MIT license. See the LICENSE file for details.\n// https://github.com/fogfish/react-dress-code\n//\n*/\n.dc-static\n{\n   display: inline-block;\n   margin: 0;\n   padding: .9rem .8rem;\n   border: 1px solid white;\n   font-size: 1.4rem;\n   font-weight: 300;\n   line-height: normal;\n   min-height: 3.7rem;\n   border-radius: 2px;\n}\n\n.dc-static:hover\n{\n   border: 1px solid #029cfe;\n   box-shadow: inset 0 1px 1px #d1d1d1;\n}\n\n\n.dc-static--in-input-group:first-child\n{\n   border-top-left-radius: 2px;\n   border-bottom-left-radius: 2px;\n}\n\n\n.dc-static-text\n{\n   display: inline-block;\n   margin: 0;\n   padding: .7rem .8rem;\n\n   border: 1px solid white;\n\n   font-size: 1.4rem;\n   font-weight: 300;\n   line-height: normal;\n   min-height: 8rem;\n   width: 100%;\n}\n\n.dc-static-text:hover\n{\n   border: 1px solid #029cfe;\n   box-shadow: inset 0 1px 1px #d1d1d1;\n}\n\n.dc-textarea--in-input-group\n{\n   margin-right: 0;\n   margin-bottom: 0;\n   margin-left: 0;\n   border-radius: 0;\n}\n\n.dc-btn--in-input-text-group\n{\n   max-height: 4rem;\n}\n\n.dc-btn--in-input-text-group:first-child\n{\n   border-top-right-radius: 2px;\n   border-top-left-radius: 0px;\n   border-bottom-right-radius: 0px;\n   border-bottom-left-radius: 0px;\n   border-left-width: 0px;\n   border-right-width: 0px;\n}\n\n.dc-btn--in-input-text-group:last-child\n{\n   border-top-right-radius: 0px;\n   border-top-left-radius: 0px;\n   border-bottom-right-radius: 2px !important;\n   border-bottom-left-radius: 0px;\n   border-left-width: 0px;\n   border-right-width: 0px;\n}\n";
-__$$styleInject(css);
-
 //
 
 //
@@ -347,6 +361,9 @@ var dc_icon = function dc_icon(props) {
 var Icon = function Icon(props) {
   return React.createElement('i', { className: dc_icon(props) });
 };
+
+var css = "/*\n// Copyright (C) 2018 Dmitry Kolesnikov\n//\n// This file may be modified and distributed under the terms\n// of the MIT license. See the LICENSE file for details.\n// https://github.com/fogfish/react-dress-code\n//\n*/\n.dc-static\n{\n   display: inline-block;\n   margin: 0;\n   padding: .9rem .8rem;\n   border: 1px solid white;\n   font-size: 1.4rem;\n   font-weight: 300;\n   line-height: normal;\n   min-height: 3.7rem;\n   border-radius: 2px;\n}\n\n.dc-static:hover\n{\n   border: 1px solid #029cfe;\n   box-shadow: inset 0 1px 1px #d1d1d1;\n}\n\n\n.dc-static--in-input-group:first-child\n{\n   border-top-left-radius: 2px;\n   border-bottom-left-radius: 2px;\n}\n\n\n.dc-static-text\n{\n   display: inline-block;\n   margin: 0;\n   padding: .7rem .8rem;\n\n   border: 1px solid white;\n\n   font-size: 1.4rem;\n   font-weight: 300;\n   line-height: normal;\n   min-height: 8rem;\n   width: 100%;\n}\n\n.dc-static-text:hover\n{\n   border: 1px solid #029cfe;\n   box-shadow: inset 0 1px 1px #d1d1d1;\n}\n\n.dc-textarea--in-input-group\n{\n   margin-right: 0;\n   margin-bottom: 0;\n   margin-left: 0;\n   border-radius: 0;\n}\n\n.dc-btn--in-input-text-group\n{\n   max-height: 4rem;\n}\n\n.dc-btn--in-input-text-group:first-child\n{\n   border-top-right-radius: 2px;\n   border-top-left-radius: 0px;\n   border-bottom-right-radius: 0px;\n   border-bottom-left-radius: 0px;\n   border-left-width: 0px;\n   border-right-width: 0px;\n}\n\n.dc-btn--in-input-text-group:last-child\n{\n   border-top-right-radius: 0px;\n   border-top-left-radius: 0px;\n   border-bottom-right-radius: 2px !important;\n   border-bottom-left-radius: 0px;\n   border-left-width: 0px;\n   border-right-width: 0px;\n}\n";
+__$$styleInject(css);
 
 //
 
@@ -449,7 +466,7 @@ var dc_input = function dc_input(props) {
         return 'dc-input--disabled';
       case 'small':
         return 'dc-input--small';
-      case 'iserror':
+      case 'is-error':
         return 'dc-input--is-error';
       case 'in-group':
         return 'dc-input--in-input-group';
@@ -462,8 +479,9 @@ var dc_input = function dc_input(props) {
 var dc_input_props = function dc_input_props(_ref3) {
   var disabled = _ref3.disabled,
       small = _ref3.small,
-      iserror = _ref3.iserror,
-      props = objectWithoutProperties(_ref3, ['disabled', 'small', 'iserror']);
+      ingroup = _ref3['in-group'],
+      iserror = _ref3['is-error'],
+      props = objectWithoutProperties(_ref3, ['disabled', 'small', 'in-group', 'is-error']);
   return props;
 };
 
@@ -480,7 +498,7 @@ var dc_textarea = function dc_textarea(props) {
         return 'dc-textarea--disabled';
       case 'small':
         return 'dc-textarea--small';
-      case 'iserror':
+      case 'is-error':
         return 'dc-textarea--is-error';
       case 'in-group':
         return 'dc-textarea--in-input-group';
@@ -493,8 +511,9 @@ var dc_textarea = function dc_textarea(props) {
 var dc_textarea_props = function dc_textarea_props(_ref5) {
   var disabled = _ref5.disabled,
       small = _ref5.small,
-      iserror = _ref5.iserror,
-      props = objectWithoutProperties(_ref5, ['disabled', 'small', 'iserror']);
+      ingroup = _ref5['in-group'],
+      iserror = _ref5['is-error'],
+      props = objectWithoutProperties(_ref5, ['disabled', 'small', 'in-group', 'is-error']);
   return props;
 };
 
@@ -510,7 +529,7 @@ var dc_select = function dc_select(props) {
         return 'dc-select--disabled';
       case 'small':
         return 'dc-select--small';
-      case 'iserror':
+      case 'is-error':
         return 'dc-select--is-error';
       default:
         return '';
@@ -520,8 +539,9 @@ var dc_select = function dc_select(props) {
 
 var dc_select_props = function dc_select_props(_ref7) {
   var small = _ref7.small,
-      iserror = _ref7.iserror,
-      props = objectWithoutProperties(_ref7, ['small', 'iserror']);
+      ingroup = _ref7['in-group'],
+      iserror = _ref7['is-error'],
+      props = objectWithoutProperties(_ref7, ['small', 'in-group', 'is-error']);
   return props;
 };
 
@@ -557,12 +577,18 @@ var dc_static = function dc_static(props) {
   });
 };
 
-var Static = function Static(_ref10) {
-  var children = _ref10.children,
-      props = objectWithoutProperties(_ref10, ['children']);
+var dc_static_props = function dc_static_props(_ref10) {
+  var ingroup = _ref10['in-group'],
+      props = objectWithoutProperties(_ref10, ['in-group']);
+  return props;
+};
+
+var Static = function Static(_ref11) {
+  var children = _ref11.children,
+      props = objectWithoutProperties(_ref11, ['children']);
   return React.createElement(
     'div',
-    _extends({ className: dc_static(props) }, props),
+    _extends({ className: dc_static(props) }, dc_static_props(props)),
     children
   );
 };
@@ -577,9 +603,9 @@ var dc_static_text = function dc_static_text(props) {
   });
 };
 
-var StaticText = function StaticText(_ref11) {
-  var children = _ref11.children,
-      props = objectWithoutProperties(_ref11, ['children']);
+var StaticText = function StaticText(_ref12) {
+  var children = _ref12.children,
+      props = objectWithoutProperties(_ref12, ['children']);
   return React.createElement(
     'div',
     _extends({ className: dc_static_text(props) }, props),
@@ -630,6 +656,9 @@ var Status = function Status(props) {
     props.children
   );
 };
+
+var css$1 = "\n.dc-tab\n{\n  display: flex;\n}\n\n.dc-tab-group\n{\n  margin-left: auto;\n}";
+__$$styleInject(css$1);
 
 //
 
@@ -689,6 +718,14 @@ var TabElement = function TabElement(_ref3) {
   return React.createElement(
     'li',
     _extends({ className: dc_tab_element(props) }, dc_tab_element_props(props)),
+    children
+  );
+};
+var TabGroup = function TabGroup(_ref4) {
+  var children = _ref4.children;
+  return React.createElement(
+    'div',
+    { className: 'dc-tab-group' },
     children
   );
 };
@@ -793,8 +830,8 @@ var TD = function TD(_ref7) {
   );
 };
 
-var css$1 = "/*\n// Copyright (C) 2018 Dmitry Kolesnikov\n//\n// This file may be modified and distributed under the terms\n// of the MIT license. See the LICENSE file for details.\n// https://github.com/fogfish/react-dress-code\n//\n*/\n\n.dc-input-group--vertical-buttons\n{\n  display: flex;\n  flex-direction: column;\n}\n";
-__$$styleInject(css$1);
+var css$2 = "/*\n// Copyright (C) 2018 Dmitry Kolesnikov\n//\n// This file may be modified and distributed under the terms\n// of the MIT license. See the LICENSE file for details.\n// https://github.com/fogfish/react-dress-code\n//\n*/\n\n.dc-input-group--vertical-buttons\n{\n  display: flex;\n  flex-direction: column;\n}\n";
+__$$styleInject(css$2);
 
 //
 
@@ -2329,6 +2366,67 @@ var DialogActions = function DialogActions(props) {
 
 //
 
+//
+//
+var dc_message = function dc_message(props) {
+  return dc(props, 'dc-msg', function (key, _) {
+    switch (key) {
+      case 'info':
+        return 'dc-msg--info';
+      case 'success':
+        return 'dc-msg--success';
+      case 'warning':
+        return 'dc-msg--warning';
+      case 'error':
+        return 'dc-msg--error';
+      default:
+        return '';
+    }
+  });
+};
+
+var Message = function Message(_ref) {
+  var children = _ref.children,
+      title = _ref.title,
+      icon = _ref.icon,
+      onClick = _ref.onClick,
+      props = objectWithoutProperties(_ref, ['children', 'title', 'icon', 'onClick']);
+  return React.createElement(
+    'div',
+    { className: dc_message(props) },
+    React.createElement(
+      'div',
+      { className: 'dc-msg__inner' },
+      icon && React.createElement(
+        'div',
+        { className: 'dc-msg__icon-frame' },
+        React.createElement('i', { className: 'dc-icon dc-msg__icon dc-icon--' + icon })
+      ),
+      React.createElement(
+        'div',
+        { className: 'dc-msg__bd' },
+        React.createElement(
+          'h1',
+          { className: 'dc-msg__title' },
+          title
+        ),
+        React.createElement(
+          'p',
+          { className: 'dc-msg__text' },
+          children
+        )
+      ),
+      onClick && React.createElement(
+        'div',
+        { className: 'dc-msg__close', onClick: onClick },
+        React.createElement('i', { className: 'dc-icon dc-icon--close dc-msg__close__icon' })
+      )
+    )
+  );
+};
+
+//
+
 var SideRevealer = function SideRevealer(props) {
   return React.createElement(
     'div',
@@ -2424,6 +2522,76 @@ var Surface = function Surface(props) {
 
 //
 
+//
+//
+var dc_toasts = function dc_toasts(props) {
+  return dc(props, 'dc-toast-container', function (key, _) {
+    switch (key) {
+      case 'top':
+        return 'dc-toast-container--top';
+      case 'bottom':
+        return 'dc-toast-container--bottom';
+      default:
+        return '';
+    }
+  });
+};
+
+var Toasts = function Toasts(_ref) {
+  var children = _ref.children,
+      props = objectWithoutProperties(_ref, ['children']);
+  return React.createElement(
+    'div',
+    { className: dc_toasts(props) },
+    children
+  );
+};
+var dc_toast = function dc_toast(props) {
+  return dc(props, 'dc-toast', function (key, _) {
+    switch (key) {
+      case 'top':
+        return 'dc-toast--top';
+      case 'bottom':
+        return 'dc-toast--bottom';
+      default:
+        return '';
+    }
+  });
+};
+
+var dc_toast_content = function dc_toast_content(props) {
+  return dc(props, 'dc-toast__content', function (key, _) {
+    switch (key) {
+      case 'info':
+        return 'dc-toast__content--info';
+      case 'success':
+        return 'dc-toast__content--success';
+      case 'warning':
+        return 'dc-toast__content--warning';
+      case 'error':
+        return 'dc-toast__content--error';
+      default:
+        return '';
+    }
+  });
+};
+
+var Toast = function Toast(_ref2) {
+  var children = _ref2.children,
+      props = objectWithoutProperties(_ref2, ['children']);
+  return React.createElement(
+    'div',
+    { className: dc_toast(props) },
+    React.createElement(
+      'div',
+      { className: dc_toast_content(props) },
+      children
+    )
+  );
+};
+
+//
+
 exports.H1 = H1;
 exports.H2 = H2;
 exports.H3 = H3;
@@ -2451,6 +2619,7 @@ exports.LoadingBar = LoadingBar;
 exports.Status = Status;
 exports.Tab = Tab;
 exports.TabElement = TabElement;
+exports.TabGroup = TabGroup;
 exports.Table = Table;
 exports.THead = THead;
 exports.TBody = TBody;
@@ -2471,6 +2640,9 @@ exports.DialogActions = DialogActions;
 exports.InputGroup = InputGroup;
 exports.AddOn = AddOn;
 exports.VerticalButtons = VerticalButtons;
+exports.Message = Message;
 exports.SideRevealer = SideRevealer;
 exports.Schema = Schema;
 exports.Surface = Surface;
+exports.Toasts = Toasts;
+exports.Toast = Toast;
