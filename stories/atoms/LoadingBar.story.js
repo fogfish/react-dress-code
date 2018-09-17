@@ -25,7 +25,7 @@ storiesOf('Atoms > Progress Indicators', module)
   .add('Icon spinners',
     withInfo('')(
       () => (
-        <div style={{'font-size': '32px'}}>
+        <div style={{'fontSize': '32px'}}>
           <Icon id="add" spin/><span> Add</span><br/><br/>
           <Icon id="cog" spin/><span> Cog</span><br/><br/>
           <Icon id="open-circle" spin/><span> Open Circle</span><br/><br/>

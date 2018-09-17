@@ -7,6 +7,7 @@
 //
 import React from 'react'
 import { dc, id } from '../core/dress-code' 
+import './input.css'
 
 //
 //
@@ -93,7 +94,7 @@ const dc_input = (props) => (
           return 'dc-input--disabled'
         case 'small': 
           return 'dc-input--small'
-        case 'iserror':
+        case 'is-error':
           return 'dc-input--is-error'
         case 'in-group':
           return 'dc-input--in-input-group'
@@ -104,7 +105,7 @@ const dc_input = (props) => (
   )
 )
 
-const dc_input_props = ({ disabled, small, iserror, ...props }) => (props)
+const dc_input_props = ({ disabled, small, 'in-group': ingroup, 'is-error': iserror, ...props }) => (props)
 
 export const Input = ({ className, children, ...props }) => (
   <input className={dc_input(props)} name={props.id} { ...dc_input_props(props) } />
@@ -120,7 +121,7 @@ const dc_textarea = (props) => (
           return 'dc-textarea--disabled'
         case 'small': 
           return 'dc-textarea--small'
-        case 'iserror':
+        case 'is-error':
           return 'dc-textarea--is-error'
         case 'in-group':
           return 'dc-textarea--in-input-group'
@@ -131,7 +132,7 @@ const dc_textarea = (props) => (
   )
 )
 
-const dc_textarea_props = ({ disabled, small, iserror, ...props }) => (props)
+const dc_textarea_props = ({ disabled, small, 'in-group': ingroup, 'is-error': iserror, ...props }) => (props)
 
 export const TextArea = ({ className, ...props }) => (
   <textarea className={dc_textarea(props)} name={props.id} { ...dc_textarea_props(props) } />
@@ -148,7 +149,7 @@ const dc_select = (props) => (
           return 'dc-select--disabled'
         case 'small': 
           return 'dc-select--small'
-        case 'iserror':
+        case 'is-error':
           return 'dc-select--is-error'
         default: 
           return ''
@@ -157,7 +158,7 @@ const dc_select = (props) => (
   )
 )
 
-const dc_select_props = ({ small, iserror, ...props }) => (props)
+const dc_select_props = ({ small, 'in-group': ingroup, 'is-error': iserror, ...props }) => (props)
 
 
 export const Select = ({ className, children, ...props }) => (
@@ -191,9 +192,10 @@ const dc_static = (props) => (
   )
 )
 
+const dc_static_props = ({ 'in-group': ingroup, ...props }) => (props)
 
-export const Static = ({ children, ...props }) => (
-  <div className={dc_static(props)} {...props}>
+export const Static = ({ children,  ...props }) => (
+  <div className={dc_static(props)} {...dc_static_props(props)}>
     {children}
   </div>
 )

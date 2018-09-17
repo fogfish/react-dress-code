@@ -36,6 +36,8 @@ const dc_btn = (props) => (
           return 'dc-btn--in-input-group'
         case 'with-text':
           return 'dc-btn--in-input-text-group'
+        case 'in-message':
+          return 'dc-msg__bd__link'
         default:
           return ''
       }
@@ -43,7 +45,7 @@ const dc_btn = (props) => (
   )
 )
 
-const dc_btn_props = ({ large, small, primary, destroy, active, disabled, link, nofocus, ...props }) => (props)
+const dc_btn_props = ({ large, small, primary, destroy, active, disabled, link, nofocus, block, 'in-group': ingroup, 'with-text': withtext, 'in-message': inmessage, ...props }) => (props)
 
 export const Button = ({ className, children, ...props }) => (
   <button className={dc_btn(props)} { ...dc_btn_props(props) }>
@@ -51,8 +53,23 @@ export const Button = ({ className, children, ...props }) => (
   </button>
 )
 
+//
+//
+const dc_link = (props) => (
+  dc(props, 'dc-link', 
+    (key, _) => {
+      switch (key) {
+        case 'in-message':
+          return 'dc-msg__bd__link'
+        default:
+          return ''
+      }
+    }
+  )
+)
+
 export const Link = ({ className, children, ...props }) => (
-  <a className={dc_btn(props)} { ...dc_btn_props(props) }>
+  <a className={dc_link(props)} { ...dc_btn_props(props) }>
     {children}
   </a>
 )

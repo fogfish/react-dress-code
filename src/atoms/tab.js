@@ -7,6 +7,8 @@
 //
 import React from 'react'
 import { dc } from '../core/dress-code' 
+import './tab.css'
+
 
 //
 //
@@ -56,4 +58,11 @@ export const TabElement = ({className, children, ...props }) => (
   <li className={dc_tab_element(props)} { ...dc_tab_element_props(props) }>
     {children}
   </li>
+)
+
+
+export const TabGroup = ({ children }) => (
+  <div className='dc-tab-group'>
+    {children}
+  </div>
 )

@@ -50,7 +50,7 @@ storiesOf('Atoms > Forms', module)
           <Input id="reqInput" type="text" placeholder="e.g. give an example" />
 
           <Label sub="required">Required input</Label>
-          <Input id="errInput" type="text" placeholder="e.g. give an example" iserror />
+          <Input id="errInput" type="text" placeholder="e.g. give an example" is-error />
 
           <Label disabled>Disabled input</Label>
           <Input id="offInput" type="text" placeholder="e.g. give an example" disabled />
@@ -70,7 +70,7 @@ storiesOf('Atoms > Forms', module)
           <TextArea cols="30" rows="3" />
 
           <Label sub="required">Text area</Label>
-          <TextArea cols="30" rows="3" iserror/>
+          <TextArea cols="30" rows="3" is-error/>
         </div>
       )
     )
@@ -96,7 +96,7 @@ storiesOf('Atoms > Forms', module)
             <option value="">Option 5</option>
           </Select>
 
-          <Select iserror>
+          <Select is-error>
             <option value="">Enabled</option>
             <option value="">Option 2</option>
             <option value="">Option 3</option>
