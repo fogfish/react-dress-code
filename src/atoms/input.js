@@ -185,6 +185,8 @@ const dc_static = (props) => (
       switch(key) {
         case 'in-group': 
           return 'dc-static--in-input-group'
+        case 'disabled': 
+          return 'dc-static--disabled'
         default: 
           return ''
       }
@@ -192,7 +194,7 @@ const dc_static = (props) => (
   )
 )
 
-const dc_static_props = ({ 'in-group': ingroup, ...props }) => (props)
+const dc_static_props = ({ 'in-group': ingroup, disabled, ...props }) => (props)
 
 export const Static = ({ children,  ...props }) => (
   <div className={dc_static(props)} {...dc_static_props(props)}>
@@ -209,6 +211,8 @@ const dc_static_text = (props) => (
       switch(key) {
         case 'in-group': 
           return 'dc-static-text--in-input-group'
+        case 'disabled': 
+          return 'dc-static-text--disabled'
         default: 
           return ''
       }

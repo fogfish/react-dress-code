@@ -25,6 +25,11 @@
    box-shadow: inset 0 1px 1px #d1d1d1;
 }
 
+.dc-static--disabled:hover
+{
+   border: 1px solid white;
+   box-shadow: none;
+}
 
 .dc-static--in-input-group:first-child
 {
@@ -53,6 +58,13 @@
    border: 1px solid #029cfe;
    box-shadow: inset 0 1px 1px #d1d1d1;
 }
+
+.dc-static-text--disabled:hover
+{
+   border: 1px solid white;
+   box-shadow: none;
+}
+
 
 .dc-textarea--in-input-group
 {

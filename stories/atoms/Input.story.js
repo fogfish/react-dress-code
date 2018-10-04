@@ -9,7 +9,7 @@ import React from 'react'
 import { withInfo } from '@storybook/addon-info'
 import { storiesOf } from '@storybook/react'
 
-import { Checkbox, Switchbox, Label, Input, TextArea, Select } from '../../src/index'
+import { Checkbox, Switchbox, Label, Input, TextArea, Select, Static, StaticText } from '../../src/index'
 
 storiesOf('Atoms > Forms', module)
   .add('Checkbox',
@@ -111,6 +111,26 @@ storiesOf('Atoms > Forms', module)
             <option value="">Option 4</option>
             <option value="">Option 5</option>
           </Select>
+        </div>
+      )
+    )
+  )
+
+  .add('Static',
+    withInfo('')(
+      () => (
+        <div>
+          <Label>Static</Label>
+          <Static>Give an example</Static>
+
+          <Label>Disable Static</Label>
+          <Static disabled>Give an example</Static>
+
+          <Label>Static text</Label>
+          <StaticText>Give an example</StaticText>
+
+          <Label>Static text</Label>
+          <StaticText disabled>Give an example</StaticText>
         </div>
       )
     )
