@@ -4,7 +4,7 @@ import { Input } from '../../atoms/input'
 import toClass from 'recompact/toClass'
 
 const Static = props => (
-  <img src={props.children} onClick={props.onClick} />
+  <img src={props.children || props.placeholder} onClick={props.onClick} />
 )
 
 const Dynamic = toClass(Input)
