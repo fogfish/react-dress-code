@@ -129,12 +129,22 @@ var id = function id() {
 
 //
 
-var Row = function Row(_ref) {
-  var children = _ref.children;
+var dc_row = function dc_row(props) {
+  return dc(props, 'dc-row', function (key, val) {
+    switch (key) {
+      case 'collapse':
+        return 'dc-row--collapse';
+      default:
+        return '';
+    }
+  });
+};
+
+var Row = function Row(props) {
   return React.createElement(
     'div',
-    { className: 'dc-row' },
-    children
+    { className: dc_row(props) },
+    props.children
   );
 };
 
@@ -149,6 +159,8 @@ var dc_column = function dc_column(props) {
         return 'dc-column--large-' + val;
       case 'huge':
         return 'dc-column--huge-' + val;
+      case 'shrink':
+        return 'dc-column--shrink';
       default:
         return '';
     }
@@ -362,7 +374,7 @@ var Icon = function Icon(props) {
   return React.createElement('i', { className: dc_icon(props) });
 };
 
-var css = "/*\n// Copyright (C) 2018 Dmitry Kolesnikov\n//\n// This file may be modified and distributed under the terms\n// of the MIT license. See the LICENSE file for details.\n// https://github.com/fogfish/react-dress-code\n//\n*/\n.dc-static\n{\n   display: inline-block;\n   margin: 0;\n   padding: .9rem .8rem;\n   border: 1px solid white;\n   font-size: 1.4rem;\n   font-weight: 300;\n   line-height: normal;\n   min-height: 3.7rem;\n   border-radius: 2px;\n}\n\n.dc-static:hover\n{\n   border: 1px solid #029cfe;\n   box-shadow: inset 0 1px 1px #d1d1d1;\n}\n\n.dc-static--disabled:hover\n{\n   border: 1px solid white;\n   box-shadow: none;\n}\n\n.dc-static--in-input-group:first-child\n{\n   border-top-left-radius: 2px;\n   border-bottom-left-radius: 2px;\n}\n\n\n.dc-static-text\n{\n   display: inline-block;\n   margin: 0;\n   padding: .7rem .8rem;\n\n   border: 1px solid white;\n\n   font-size: 1.4rem;\n   font-weight: 300;\n   line-height: normal;\n   min-height: 8rem;\n   width: 100%;\n}\n\n.dc-static-text:hover\n{\n   border: 1px solid #029cfe;\n   box-shadow: inset 0 1px 1px #d1d1d1;\n}\n\n.dc-static-text--disabled:hover\n{\n   border: 1px solid white;\n   box-shadow: none;\n}\n\n\n.dc-textarea--in-input-group\n{\n   margin-right: 0;\n   margin-bottom: 0;\n   margin-left: 0;\n   border-radius: 0;\n}\n\n.dc-btn--in-input-text-group\n{\n   max-height: 4rem;\n}\n\n.dc-btn--in-input-text-group:first-child\n{\n   border-top-right-radius: 2px;\n   border-top-left-radius: 0px;\n   border-bottom-right-radius: 0px;\n   border-bottom-left-radius: 0px;\n   border-left-width: 0px;\n   border-right-width: 0px;\n}\n\n.dc-btn--in-input-text-group:last-child\n{\n   border-top-right-radius: 0px;\n   border-top-left-radius: 0px;\n   border-bottom-right-radius: 2px !important;\n   border-bottom-left-radius: 0px;\n   border-left-width: 0px;\n   border-right-width: 0px;\n}\n";
+var css = "/*\n// Copyright (C) 2018 Dmitry Kolesnikov\n//\n// This file may be modified and distributed under the terms\n// of the MIT license. See the LICENSE file for details.\n// https://github.com/fogfish/react-dress-code\n//\n*/\n.dc-static\n{\n   display: inline-block;\n   margin: 0;\n   padding: .9rem .8rem;\n   border: 1px solid white;\n   font-size: 1.4rem;\n   font-weight: 300;\n   line-height: normal;\n   min-height: 3.7rem;\n   border-radius: 2px;\n}\n\n.dc-static:hover\n{\n   border: 1px solid #029cfe;\n   box-shadow: inset 0 1px 1px #d1d1d1;\n}\n\n.dc-static--is-error\n{\n   border: 1px solid #ff4a25;   \n}\n\n.dc-static--disabled:hover\n{\n   border: 1px solid white;\n   box-shadow: none;\n}\n\n.dc-static--in-input-group:first-child\n{\n   border-top-left-radius: 2px;\n   border-bottom-left-radius: 2px;\n}\n\n\n.dc-static-text\n{\n   display: inline-block;\n   margin: 0;\n   padding: .7rem .8rem;\n\n   border: 1px solid white;\n\n   font-size: 1.4rem;\n   font-weight: 300;\n   line-height: normal;\n   min-height: 8rem;\n   width: 100%;\n}\n\n\n.dc-static-text:hover\n{\n   border: 1px solid #029cfe;\n   box-shadow: inset 0 1px 1px #d1d1d1;\n}\n\n.dc-static-text--disabled:hover\n{\n   border: 1px solid white;\n   box-shadow: none;\n}\n\n\n.dc-textarea--in-input-group\n{\n   margin-right: 0;\n   margin-bottom: 0;\n   margin-left: 0;\n   border-radius: 0;\n}\n\n.dc-btn--in-input-text-group\n{\n   max-height: 4rem;\n}\n\n.dc-btn--in-input-text-group:first-child\n{\n   border-top-right-radius: 2px;\n   border-top-left-radius: 0px;\n   border-bottom-right-radius: 0px;\n   border-bottom-left-radius: 0px;\n   border-left-width: 0px;\n   border-right-width: 0px;\n}\n\n.dc-btn--in-input-text-group:last-child\n{\n   border-top-right-radius: 0px;\n   border-top-left-radius: 0px;\n   border-bottom-right-radius: 2px !important;\n   border-bottom-left-radius: 0px;\n   border-left-width: 0px;\n   border-right-width: 0px;\n}\n";
 __$$styleInject(css);
 
 //
@@ -571,6 +583,8 @@ var dc_static = function dc_static(props) {
     switch (key) {
       case 'in-group':
         return 'dc-static--in-input-group';
+      case 'is-error':
+        return 'dc-static--is-error';
       case 'disabled':
         return 'dc-static--disabled';
       default:
@@ -581,8 +595,9 @@ var dc_static = function dc_static(props) {
 
 var dc_static_props = function dc_static_props(_ref10) {
   var ingroup = _ref10['in-group'],
+      isError = _ref10['is-error'],
       disabled = _ref10.disabled,
-      props = objectWithoutProperties(_ref10, ['in-group', 'disabled']);
+      props = objectWithoutProperties(_ref10, ['in-group', 'is-error', 'disabled']);
   return props;
 };
 
@@ -2058,11 +2073,15 @@ var IEditor = function IEditor(_ref2) {
     'div',
     { className: 'dc-inline-editor' },
     !props.editing && React.createElement(
-      Static,
-      { onClick: function onClick() {
-          return focus(props);
-        } },
-      props.defaultValue || props.placeholder
+      InputGroup,
+      null,
+      React.createElement(
+        Static,
+        _extends({ onClick: function onClick() {
+            return focus(props);
+          } }, edit_props(props)),
+        props.defaultValue || props.placeholder
+      )
     ),
     props.editing && React.createElement(
       InputGroup,
