@@ -2266,7 +2266,7 @@ var IETextArea = function IETextArea(props) {
 };
 
 var Static$1 = function Static$$1(props) {
-  return React.createElement('img', { src: props.children, onClick: props.onClick });
+  return React.createElement('img', { src: props.children || props.placeholder, onClick: props.onClick });
 };
 
 var Dynamic$2 = toClass(Input);
