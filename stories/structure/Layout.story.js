@@ -135,3 +135,105 @@ storiesOf('Layout > Grid', module)
       )
     )
   )
+
+  .add('Row Align Centered',
+    withInfo('')(
+      () => (
+        <div>
+          <Row align="center">
+            <Column small={3}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+            <Column small={3}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+            <Column small={3}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+          </Row>
+        </div>
+      )
+    )
+  )
+
+  .add('Row Align Right',
+    withInfo('')(
+      () => (
+        <div>
+          <Row align="right">
+            <Column small={3}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+            <Column small={3}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+            <Column small={3}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+          </Row>
+        </div>
+      )
+    )
+  )
+
+  .add('Row Align Spaced',
+    withInfo('')(
+      () => (
+        <div>
+          <Row align="spaced">
+            <Column small={3}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+            <Column small={3}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+            <Column small={3}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+          </Row>
+        </div>
+      )
+    )
+  )
+
+  .add('Row Align Justified',
+    withInfo('')(
+      () => (
+        <div>
+          <Row align="justify">
+            <Column small={3}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+            <Column small={2}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+            <Column small={2}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+            <Column small={3}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+          </Row>
+        </div>
+      )
+    )
+  )
+
+  .add('Row Align Top',
+    withInfo('')(
+      () => (
+        <div>
+          <Row align="top">
+            <Column small={4}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+            <Column small={3}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+            <Column small={2}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+            <Column small={2}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+          </Row>
+        </div>
+      )
+    )
+  )
+
+  .add('Row Align Middle',
+    withInfo('')(
+      () => (
+        <div>
+          <Row align="middle">
+            <Column small={4}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+            <Column small={3}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+            <Column small={2}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+            <Column small={2}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+          </Row>
+        </div>
+      )
+    )
+  )
+
+  .add('Self Align Columns',
+    withInfo('')(
+      () => (
+        <div>
+          <Row align="spaced">
+            <Column small={2}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi explicabo eveniet inventore voluptatibus aliquid debitis laboriosam magni cupiditate possimus facere?</Column>
+            <Column small={2} align="bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </Column>
+            <Column small={2} align="top">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Column>
+            <Column small={2} align="middle">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Column>
+          </Row>
+        </div>
+      )
+    )
+  )
