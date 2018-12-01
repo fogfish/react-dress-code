@@ -36,6 +36,11 @@
    box-shadow: none;
 }
 
+.dc-static--placeholder
+{
+   color: #aaa;
+}
+
 .dc-static--in-input-group:first-child
 {
    border-top-left-radius: 2px;
@@ -69,6 +74,16 @@
 {
    border: 1px solid white;
    box-shadow: none;
+}
+
+.dc-static-text--is-error
+{
+   border: 1px solid #ff4a25;   
+}
+
+.dc-static-text--placeholder
+{
+   color: #aaa;
 }
 
 

@@ -105,8 +105,15 @@ storiesOf('Molecules > Editor', module)
     withInfo('')(
       () => (
         <div>
-          <Label sub="click on text to edit, Shift + Enter to save, Esc to cancel, use `white-space: pre-wrap;` to render multi-line text.">Text area</Label>
-          <IETextAreaStory text="Give An Example" />
+          <div className="dc-input-stack">
+            <Label sub="click on text to edit, Shift + Enter to save, Esc to cancel, use `white-space: pre-wrap;` to render multi-line text.">Text area</Label>
+            <IETextAreaStory text="Give An Example" />
+          </div>
+          <div className="dc-input-stack">
+            <Label sub="click on text to edit, Shift + Enter to save, Esc to cancel, use `white-space: pre-wrap;` to render multi-line text.">Text area</Label>
+            <IETextAreaStory text="Give An Example" is-error />
+            <span class="dc--text-error">Oops, Some error here, fix it!</span>
+          </div>
         </div>
       )
     )

@@ -198,9 +198,9 @@ const dc_static = (props) => (
 
 const dc_static_props = ({ 'in-group': ingroup, 'is-error': isError, disabled, ...props }) => (props)
 
-export const Static = ({ children,  ...props }) => (
-  <div className={dc_static(props)} {...dc_static_props(props)}>
-    {children}
+export const Static = ({ children, placeholder, ...props }) => (
+  <div className={`${dc_static(props)} ${children ? '' : 'dc-static--placeholder'}`} {...dc_static_props(props)}>
+    {children || placeholder}
   </div>
 )
 
@@ -213,6 +213,8 @@ const dc_static_text = (props) => (
       switch(key) {
         case 'in-group': 
           return 'dc-static-text--in-input-group'
+        case 'is-error':
+          return 'dc-static-text--is-error'
         case 'disabled': 
           return 'dc-static-text--disabled'
         default: 
@@ -222,9 +224,9 @@ const dc_static_text = (props) => (
   )
 )
 
-export const StaticText = ({ children, ...props }) => (
-  <div className={dc_static_text(props)} {...props}>
-    {children}
+export const StaticText = ({ children, placeholder, ...props }) => (
+  <div className={`${dc_static_text(props)} ${children ? '' : 'dc-static-text--placeholder'}`} {...props}>
+    {children || placeholder}
   </div>
 )
 
