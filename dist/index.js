@@ -134,6 +134,8 @@ var dc_row = function dc_row(props) {
     switch (key) {
       case 'collapse':
         return 'dc-row--collapse';
+      case 'align':
+        return 'dc-row--align--' + val;
       default:
         return '';
     }
@@ -161,6 +163,8 @@ var dc_column = function dc_column(props) {
         return 'dc-column--huge-' + val;
       case 'shrink':
         return 'dc-column--shrink';
+      case 'align':
+        return 'dc-column--align-self--' + val;
       default:
         return '';
     }
