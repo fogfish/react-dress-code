@@ -11,7 +11,7 @@ import { withInfo } from '@storybook/addon-info'
 import { action } from '@storybook/addon-actions'
 import withState from 'recompact/withState'
 
-import { IEText, IETextArea, IEImage, Label } from '../../src/index'
+import { IEText, IETextArea, IEImage, Label, Input } from '../../src/index'
 
 
 const IETextStory = 
@@ -57,7 +57,13 @@ storiesOf('Molecules > Editor', module)
       () => (
         <div>
           <Label sub="click on text to edit, Enter to save, Esc to cancel">Text input</Label>
-          <IETextStory text="Give An Example" />
+          <div className="dc-input-stack">
+            <IETextStory text="Give An Example" />
+          </div>
+          <div className="dc-input-stack">
+            <IETextStory text="Give An Example" is-error />
+            <span class="dc--text-error">Oops, Some error here, fix it!</span>
+          </div>
         </div>
       )
     )
@@ -67,8 +73,10 @@ storiesOf('Molecules > Editor', module)
     withInfo('')(
       () => (
         <div>
-          <Label sub="click on text to edit, Enter to save, Esc to cancel">Text input</Label>
-          <IETextStory placeholder="e.g. give an example" />
+          <div className="dc-input-stack">
+            <Label sub="click on text to edit, Enter to save, Esc to cancel">Text input</Label>
+            <IETextStory placeholder="e.g. give an example" />
+          </div>
         </div>
       )
     )
@@ -78,8 +86,16 @@ storiesOf('Molecules > Editor', module)
     withInfo('')(
       () => (
         <div>
-          <Label>Text input with Buttons</Label>
-          <IETextStory commitWithButtons text="Give An Example" />
+          <div className="dc-input-stack">
+            <Label>Text input with Buttons</Label>
+            <IETextStory commitWithButtons text="Give An Example" />
+          </div>
+          <div className="dc-input-stack">
+            <Label sub="click on text to edit, Enter to save, Esc to cancel">Text input</Label>
+            <IETextStory commitWithButtons text="Give An Example" is-error />
+            <span class="dc--text-error">Oops, Some error here, fix it!</span>
+          </div>
+
         </div>
       )
     )

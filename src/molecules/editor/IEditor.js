@@ -43,9 +43,11 @@ const edit_props = ({input, editing, buffer, focus, setInput, setEditing, setVal
 const IEditor = ({Static, Dynamic, commitWithShift, commitWithButtons, commitWithVerticalButtons, ...props}) => (
   <div className="dc-inline-editor">
     {!props.editing &&
-      <Static onClick={() => focus(props)}>
-        {props.defaultValue || props.placeholder}
-      </Static>
+      <InputGroup>
+        <Static onClick={() => focus(props)} { ...edit_props(props) }>
+          {props.defaultValue || props.placeholder}
+        </Static>
+      </InputGroup>
     }
     {props.editing &&
       <InputGroup>

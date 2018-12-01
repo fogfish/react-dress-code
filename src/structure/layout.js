@@ -8,10 +8,21 @@
 import React from 'react'
 import { dc } from '../core/dress-code' 
 
+const dc_row = (props) =>
+  dc(props, 'dc-row',
+    (key, val) => {
+      switch (key) {
+        case 'collapse':
+          return 'dc-row--collapse'
+        default:
+          return ''
+      }
+    }
+  )
 
-export const Row = ({children}) => (
-  <div className="dc-row">   
-    {children}
+export const Row = (props) => (
+  <div className={dc_row(props)}>
+    {props.children}
   </div>
 )
 
@@ -27,6 +38,8 @@ const dc_column = (props) =>
           return `dc-column--large-${val}`
         case 'huge': 
           return `dc-column--huge-${val}`
+        case 'shrink':
+          return 'dc-column--shrink'
         default:
           return ''
       }
