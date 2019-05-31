@@ -18,10 +18,14 @@ const Head = ({ children }) => (
   </THead>
 )
 
-const Data = ({ children, json, onClick }) => (
+const Data = ({ children, json, onClick, onMouseOver, onMouseEnter, onMouseLeave, onMouseOut }) => (
   <TR
     interactive
     onClick={onClick && (() => onClick(json))}
+    onMouseOver={onMouseOver && (() => onMouseOver(json))}
+    onMouseEnter={onMouseEnter && (() => onMouseEnter(json))}
+    onMouseLeave={onMouseLeave && (() => onMouseLeave(json))}
+    onMouseOut={onMouseOut && (() => onMouseOut(json))}
   >
     {React.Children.map(children, e => (
       <TD><Schema { ...e.props } json={json} onClick={onClick} /></TD>

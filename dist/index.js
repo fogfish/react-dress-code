@@ -2501,13 +2501,29 @@ var Head = function Head(_ref) {
 var Data = function Data(_ref2) {
   var children = _ref2.children,
       json = _ref2.json,
-      onClick = _ref2.onClick;
+      onClick = _ref2.onClick,
+      onMouseOver = _ref2.onMouseOver,
+      onMouseEnter = _ref2.onMouseEnter,
+      onMouseLeave = _ref2.onMouseLeave,
+      onMouseOut = _ref2.onMouseOut;
   return React.createElement(
     TR,
     {
       interactive: true,
       onClick: onClick && function () {
         return onClick(json);
+      },
+      onMouseOver: onMouseOver && function () {
+        return onMouseOver(json);
+      },
+      onMouseEnter: onMouseEnter && function () {
+        return onMouseEnter(json);
+      },
+      onMouseLeave: onMouseLeave && function () {
+        return onMouseLeave(json);
+      },
+      onMouseOut: onMouseOut && function () {
+        return onMouseOut(json);
       }
     },
     React.Children.map(children, function (e) {
