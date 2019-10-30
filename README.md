@@ -5,6 +5,9 @@ The library implements a [react.js](https://reactjs.org) interface to [Dress Cod
 [![NPM](https://img.shields.io/npm/v/react-dress-code.svg)](https://www.npmjs.com/package/react-dress-code)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+**DO NOT USE: support is discontinued**
+Please checkout outher Open Source Alternatives https://blueprintjs.com
+
 ## Key features
 
 Features of style library is well document by [original documentation](http://zalando.github.io/dress-code/index.html). This library re-uses original notation to simplify application design and re-usability of concepts and patterns.
