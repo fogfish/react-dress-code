@@ -6,7 +6,8 @@ The library implements a [react.js](https://reactjs.org) interface to [Dress Cod
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 **DO NOT USE: support is discontinued**
-Please checkout outher Open Source Alternatives https://blueprintjs.com
+
+Please checkout other Open Source Alternatives https://blueprintjs.com
 
 ## Key features
 
